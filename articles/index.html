@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <!-- ================= BASIC META ================= -->
+  <meta charset="UTF-8">
+  <title>Bài viết & Chia sẻ công nghệ | Kingpes</title>
+
+  <meta name="description"
+    content="Chia sẻ kiến thức về Website, Ứng dụng Mobile, AI và chuyển đổi số dành cho cá nhân và hộ kinh doanh.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://kingpes.net/articles/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bài viết & Chia sẻ công nghệ | Kingpes">
+  <meta property="og:description"
+    content="Kiến thức thực tế về Web, Mobile, AI và giải pháp công nghệ cho doanh nghiệp nhỏ.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kingpes.net/articles/">
+
+  <!-- ================= SCHEMA ================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Kingpes Articles",
+    "url": "https://kingpes.net/articles/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Kingpes",
+      "url": "https://kingpes.net"
+    }
+  }
+  </script>
+
+  <!-- ================= CSS ================= -->
+  <style>
+    :root {
+      --primary: #2563eb;
+      --dark: #0f172a;
+      --muted: #64748b;
+      --bg: #f8fafc;
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== HEADER (GIỐNG TRANG CHÍNH – BẢN GỌN) ===== */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav a {
+      margin-left: 1.2rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: var(--dark);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #fff;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+
+    .hero p {
+      color: #cbd5f5;
+      max-width: 700px;
+      margin: 1rem auto 0;
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 4rem 1.5rem;
+    }
+
+    /* ===== EMPTY STATE ===== */
+    .empty {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 4rem 2rem;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,.06);
+    }
+
+    .empty .icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .empty p {
+      color: var(--muted);
+      max-width: 500px;
+      margin: .5rem auto 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: .7rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--primary);
+      margin-left: 1rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: .85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="header-inner">
+      <a href="/">
+        <strong>Kingpes</strong>
+      </a>
+      <nav>
+        <a href="/">Trang chủ</a>
+        <a href="/articles/" class="active">Bài viết</a>
+        <a href="/contact/">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <h1>Bài viết & Chia sẻ</h1>
+    <p>
+      Kiến thức thực tế về Website, Mobile App, AI và chuyển đổi số
+      dành cho cá nhân và hộ kinh doanh.
+    </p>
+  </section>
+
+  <!-- ================= MAIN ================= -->
+  <main>
+    <div class="empty">
+      <div class="icon">📄</div>
+      <h2>Chưa có bài viết</h2>
+      <p>
+        Chúng tôi đang chuẩn bị những nội dung chất lượng
+        để chia sẻ trong thời gian sớm nhất.
+      </p>
+
+      <a href="/" class="btn">Quay về trang chủ</a>
+      <a href="/contact/" class="btn secondary">Liên hệ tư vấn</a>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    © 2026 Kingpes
+  </footer>
+
+</body>
+</html>

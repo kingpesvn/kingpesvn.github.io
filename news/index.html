@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tin Công Nghệ & AI Cho Doanh Nghiệp Nhỏ | Kingpes</title>
+
+  <meta name="description"
+        content="Tin tức công nghệ, AI, Web, Mobile mới nhất dành cho doanh nghiệp nhỏ. Phân tích xu hướng, cập nhật mỗi ngày.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#2563eb">
+
+  <link rel="canonical" href="https://yourdomain.com/news/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tin Công Nghệ & AI Cho Doanh Nghiệp Nhỏ">
+  <meta property="og:description" content="Cập nhật xu hướng công nghệ mới nhất cho SMEs">
+  <meta property="og:type" content="website">
+
+  <!-- ===== ADSENSE (WEB) ===== -->
+  <!-- Nếu dùng AdMob WebView, script này vẫn OK -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
+    crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --bg: #ffffff;
+      --light: #f8fafc;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0 }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 24px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .header-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    nav a {
+      position: relative;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: var(--text);
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transform: translateX(-50%);
+      transition: .3s;
+    }
+
+    nav a.active::after,
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      padding: 60px 0;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .sub {
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    /* ===== FILTER ===== */
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .filter-bar button {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: white;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .filter-bar button.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* ===== GRID ===== */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .news-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.05);
+      transition: .3s;
+    }
+
+    .news-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .news-card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .news-card h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .news-card p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ===== ADS ZONES ===== */
+    .ad-zone {
+      margin: 40px 0;
+      padding: 16px;
+      background: var(--light);
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .ad-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    /* ===== PAGINATION ===== */
+    .pagination {
+      margin-top: 48px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .pagination a {
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .pagination a.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="container header-inner">
+    <strong>Kingpes</strong>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/#services">Services</a>
+      <a href="/news/" class="active">News</a>
+      <a href="/articles/">Articles</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <h1>Tin Công Nghệ & AI</h1>
+  <p class="sub">Cập nhật xu hướng mới nhất cho doanh nghiệp nhỏ</p>
+
+  <!-- ===== AD ZONE: TOP BANNER ===== -->
+  <div class="ad-zone">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXX"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+  <!-- FILTER -->
+  <div class="filter-bar">
+    <button class="active">Mới nhất</button>
+    <button>Xem nhiều</button>
+    <button>AI</button>
+    <button>Web</button>
+    <button>Mobile</button>
+  </div>
+
+  <!-- NEWS GRID -->
+  <div class="news-grid">
+
+    <article class="news-card">
+      <img src="https://picsum.photos/400/250?1" alt="">
+      <div class="meta">AI • 2 ngày trước</div>
+      <h3>AI đang thay đổi doanh nghiệp nhỏ</h3>
+      <p>Ứng dụng AI thực tế giúp tối ưu vận hành.</p>
+    </article>
+
+    <article class="news-card">
+      <img src="https://picsum.photos/400/250?2" alt="">
+      <div class="meta">Web • 3 ngày trước</div>
+      <h3>Website chuẩn SEO mang lại gì?</h3>
+      <p>Chiến lược SEO cho SMEs.</p>
+    </article>
+
+    <article class="news-card">
+      <img src="https://picsum.photos/400/250?3" alt="">
+      <div class="meta">Mobile • 5 ngày trước</div>
+      <h3>Có nên làm Mobile App?</h3>
+      <p>So sánh Web App và Mobile App.</p>
+    </article>
+
+  </div>
+
+  <!-- ===== AD ZONE: IN-FEED ===== -->
+  <div class="ad-zone">
+    <div class="ad-label">Sponsored</div>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXX"
+         data-ad-slot="2222222222"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"></ins>
+  </div>
+
+  <!-- PAGINATION -->
+  <div class="pagination">
+    <a href="#" class="active">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+  </div>
+
+</main>
+
+<!-- ===== FOOTER AD ===== -->
+<div class="container">
+  <div class="ad-zone">
+    <div class="ad-label">Advertisement</div>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXX"
+         data-ad-slot="3333333333"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+</div>
+
+<footer>
+  © 2026 Kingpes
+</footer>
+
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</body>
+</html>
