@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
+Disallow: /vi/tao/
+Disallow: /en/create/
+Disallow: /ja/create/
+Disallow: /ko/create/
+Disallow: /zh/create/
+Disallow: /th/create/
+Disallow: /id/buat/
+Disallow: /es/crear/
+Disallow: /fr/creer/
+Disallow: /de/erstellen/
+Disallow: /pt/criar/
+Disallow: /ru/create/
+Disallow: /preview/
 
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://kingpes.net/sitemap-index.xml

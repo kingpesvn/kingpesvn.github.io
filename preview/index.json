@@ -1,0 +1,129 @@
+[
+  {
+    "id": "beauty/bt-260927-01",
+    "thumbs": [
+      "kr",
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "BT-260927-01-v1.0",
+    "version": "1.0",
+    "released": "2026-09-27",
+    "name": {
+      "vi": "Spa, làm đẹp",
+      "en": "Spa & beauty",
+      "ja": "スパ・美容"
+    },
+    "category": "beauty",
+    "pages": 4
+  },
+  {
+    "id": "food/fd-260927-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "FD-260927-01-v1.0",
+    "version": "1.0",
+    "released": "2026-09-27",
+    "name": {
+      "vi": "Tiệm bánh",
+      "en": "Bakery",
+      "ja": "ベーカリー"
+    },
+    "category": "food",
+    "pages": 18
+  },
+  {
+    "id": "food/fd-260927-02",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "FD-260927-02-v1.0",
+    "version": "1.0",
+    "released": "2026-09-27",
+    "name": {
+      "vi": "Quán cà phê",
+      "en": "Coffee shop",
+      "ja": "カフェ"
+    },
+    "category": "food",
+    "pages": 3
+  },
+  {
+    "id": "food/fd-261002-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "FD-261002-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-02",
+    "name": {
+      "vi": "Quán phở",
+      "en": "Noodle house",
+      "ja": "フォー専門店"
+    },
+    "category": "food",
+    "pages": 3
+  },
+  {
+    "id": "retail/rt-260927-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "RT-260927-01-v1.0",
+    "version": "1.0",
+    "released": "2026-09-27",
+    "name": {
+      "vi": "Cửa hàng điện thoại, máy tính bảng",
+      "en": "Phone & tablet store",
+      "ja": "スマホ・タブレット店"
+    },
+    "category": "retail",
+    "pages": 23
+  },
+  {
+    "id": "retail/rt-261002-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "RT-261002-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-02",
+    "name": {
+      "vi": "Tiệm hoa tươi",
+      "en": "Flower shop",
+      "ja": "フラワーショップ"
+    },
+    "category": "retail",
+    "pages": 217
+  },
+  {
+    "id": "retail/rt-261003-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "RT-261003-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-03",
+    "name": {
+      "vi": "Cửa hàng xe đạp & xe điện",
+      "en": "Bike & e-bike shop",
+      "ja": "自転車・電動バイクショップ"
+    },
+    "category": "retail",
+    "pages": 217
+  }
+]
