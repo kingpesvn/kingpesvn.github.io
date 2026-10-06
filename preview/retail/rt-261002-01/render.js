@@ -1,19 +1,53 @@
-var ee={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"},e=(t="")=>String(t).replace(/[&<>"']/g,a=>ee[a]);function A(t,a,s="vi"){return t==null?"":typeof t!="object"?String(t):t[a]??t[s]??Object.values(t)[0]??""}var ae={vi:"vi-VN",en:"en-US",ja:"ja-JP",th:"th-TH",ko:"ko-KR",fr:"fr-FR",zh:"zh-CN",id:"id-ID",es:"es-ES",de:"de-DE",pt:"pt-BR",ru:"ru-RU",it:"it-IT",ms:"ms-MY",nl:"nl-NL"},H=t=>ae[t]??"en-US";function te(t,a="1"){if(a==="0.99")return Math.max(.99,Math.ceil(t)-.01);let s=Number(a)||1;return Math.max(s,Math.round(t/s)*s)}function P(t,a){if(a.default)return t.basePrice;let s=t.prices?.[a.id]??{mode:"auto"};return s.mode==="hidden"?null:s.mode==="manual"?s.amount:te(t.basePrice*a.rate,a.rounding)}var se=new Set(["VND","JPY","KRW","IDR","KHR","LAK"]);function D(t,a){let s={style:"currency",currency:a.currency};return se.has(a.currency)&&(s.maximumFractionDigits=0),new Intl.NumberFormat(H(a.lang),s).format(t)}function F(t="/"){let a=t.endsWith("/")?t:`${t}/`;return(s="")=>a+String(s).replace(/^\//,"")}var z=(t="")=>t.startsWith("uploads/")?t:/^([a-z]+:|\/)/i.test(t)?null:`assets/${t}`,x=(t,a)=>{let s=z(a);return s==null?a:t(s)},k=(t="")=>String(t).replace(/\D/g,"");function O(t,a,s=""){switch(t){case"phone":return`tel:${k(a.phone)}`;case"zalo":return`https://zalo.me/${k(a.zalo||a.phone)}`;case"messenger":return`https://m.me/${encodeURIComponent(a.messenger)}`;case"whatsapp":return`https://wa.me/${k(a.whatsapp)}${s?`?text=${encodeURIComponent(s)}`:""}`;case"kakao":return`https://pf.kakao.com/${encodeURIComponent(a.kakao)}/chat`;case"email":return`mailto:${a.email}${s?`?subject=${encodeURIComponent(s)}`:""}`;default:return"#"}}var R=t=>`<script type="application/ld+json">${JSON.stringify(t).replace(/</g,"\\u003c")}<\/script>`;var ne={zalo:'<path d="M4 5h16v11H9l-5 4z"/>',phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',whatsapp:'<path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1-1.2 1.8.8"/>',messenger:'<path d="M12 3C7 3 3 6.7 3 11.3c0 2.6 1.3 4.9 3.3 6.4V21l3-1.7c.9.3 1.8.4 2.7.4 5 0 9-3.7 9-8.4S17 3 12 3z"/><path d="M7.5 13.5l3-3 2.5 2 3.5-3"/>',kakao:'<path d="M12 4C6.5 4 3 7.3 3 11c0 2.4 1.6 4.5 4 5.7L6.5 20l3.6-2.4c.6.1 1.2.1 1.9.1 5.5 0 9-3.3 9-7s-3.5-6.7-9-6.7z"/>',email:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',pin:'<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>',menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',leaf:'<path d="M5 19c0-8 5-14 15-15-1 10-7 15-15 15z"/><path d="M5 19l8-8"/>',drop:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>',hand:'<path d="M8 13V6a1.5 1.5 0 0 1 3 0v5M11 11V4.5a1.5 1.5 0 0 1 3 0V11M14 11V6a1.5 1.5 0 0 1 3 0v7c0 4-2.5 7-6 7s-5-2-6.5-4.5L3 12.5a1.5 1.5 0 0 1 2.5-1.6L8 14"/>',calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',bowl:'<path d="M3 11h18a9 9 0 0 1-18 0z"/><path d="M9 20h6M14 3l-3 7M18 4l-4.5 6"/>',cup:'<path d="M4 8h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 2.5c-.6 1 .6 2 0 3M12 2.5c-.6 1 .6 2 0 3"/>',bag:'<path d="M6 7h12l1 14H5z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/>',shield:'<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',refresh:'<path d="M20 11a8 8 0 0 0-14.3-4.9L4 8M4 4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16M20 20v-4h-4"/>',card:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/>',truck:'<path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',chevron:'<path d="M9 6l6 6-6 6"/>',bike:'<circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l4-8h5l3 8M10 9 8 5H5M15 9l1-3h3"/>',bolt:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',wrench:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/>',gauge:'<path d="M4 18a9 9 0 1 1 16 0"/><path d="M12 13l4-5"/><circle cx="12" cy="14" r="1.5"/>'},m=(t,a=20,s="")=>`<svg class="i" width="${a}" height="${a}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ${s}>${ne[t]??""}</svg>`,L=[1,2,3,4,5,6,0],oe=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];function U(t,a){let s=t.map(o=>L.indexOf(o)).sort((o,i)=>o-i);return s.every((o,i)=>i===0||o===s[i-1]+1)&&s.length>2?`${a[L[s[0]]]} \u2013 ${a[L[s.at(-1)]]}`:s.map(o=>a[L[o]]).join(", ")}var T=t=>t.map(a=>({"@type":"OpeningHoursSpecification",dayOfWeek:a.days.map(s=>oe[s]),opens:a.open,closes:a.close}));function B(t){return new Intl.NumberFormat(H(t.lang),{style:"currency",currency:t.currency}).formatToParts(0).find(s=>s.type==="currency")?.value??t.currency}var q=t=>t==="phone"||t==="email"?"":'target="_blank" rel="noopener"',_=t=>`<div class="suggest" id="market-suggest" data-suggest="${e(t.market.suggest)}" hidden>
+var le={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"},t=(a="")=>String(a).replace(/[&<>"']/g,e=>le[e]);function C(a,e,n="vi"){return a==null?"":typeof a!="object"?String(a):a[e]??a[n]??Object.values(a)[0]??""}var pe={vi:"vi-VN",en:"en-US",ja:"ja-JP",th:"th-TH",ko:"ko-KR",fr:"fr-FR",zh:"zh-CN",id:"id-ID",es:"es-ES",de:"de-DE",pt:"pt-BR",ru:"ru-RU",it:"it-IT",ms:"ms-MY",nl:"nl-NL"},B=a=>pe[a]??"en-US";function de(a,e="1"){if(e==="0.99")return Math.max(.99,Math.ceil(a)-.01);let n=Number(e)||1;return Math.max(n,Math.round(a/n)*n)}function F(a,e){if(e.default)return a.basePrice;let n=a.prices?.[e.id]??{mode:"auto"};return n.mode==="hidden"?null:n.mode==="manual"?n.amount:de(a.basePrice*e.rate,e.rounding)}var he=new Set(["VND","JPY","KRW","IDR","KHR","LAK"]);function O(a,e){let n={style:"currency",currency:e.currency};return he.has(e.currency)&&(n.maximumFractionDigits=0),new Intl.NumberFormat(B(e.lang),n).format(a)}function A(a="/"){let e=a.endsWith("/")?a:`${a}/`;return(n="")=>e+String(n).replace(/^\//,"")}var P=(a="")=>a.startsWith("uploads/")?a:/^([a-z]+:|\/)/i.test(a)?null:`assets/${a}`,D=(a,e)=>{let n=P(e);return n==null?e:a(n)},w=(a="")=>String(a).replace(/\D/g,"");function M(a,e,n=""){switch(a){case"phone":return`tel:${w(e.phone)}`;case"zalo":return`https://zalo.me/${w(e.zalo||e.phone)}`;case"messenger":return`https://m.me/${encodeURIComponent(e.messenger)}`;case"whatsapp":return`https://wa.me/${w(e.whatsapp)}${n?`?text=${encodeURIComponent(n)}`:""}`;case"kakao":return`https://pf.kakao.com/${encodeURIComponent(e.kakao)}/chat`;case"email":return`mailto:${e.email}${n?`?subject=${encodeURIComponent(n)}`:""}`;default:return"#"}}var T=a=>`<script type="application/ld+json">${JSON.stringify(a).replace(/</g,"\\u003c")}<\/script>`;var ue={zalo:'<path d="M4 5h16v11H9l-5 4z"/>',phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',whatsapp:'<path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1-1.2 1.8.8"/>',messenger:'<path d="M12 3C7 3 3 6.7 3 11.3c0 2.6 1.3 4.9 3.3 6.4V21l3-1.7c.9.3 1.8.4 2.7.4 5 0 9-3.7 9-8.4S17 3 12 3z"/><path d="M7.5 13.5l3-3 2.5 2 3.5-3"/>',kakao:'<path d="M12 4C6.5 4 3 7.3 3 11c0 2.4 1.6 4.5 4 5.7L6.5 20l3.6-2.4c.6.1 1.2.1 1.9.1 5.5 0 9-3.3 9-7s-3.5-6.7-9-6.7z"/>',email:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',pin:'<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>',menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',leaf:'<path d="M5 19c0-8 5-14 15-15-1 10-7 15-15 15z"/><path d="M5 19l8-8"/>',drop:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>',hand:'<path d="M8 13V6a1.5 1.5 0 0 1 3 0v5M11 11V4.5a1.5 1.5 0 0 1 3 0V11M14 11V6a1.5 1.5 0 0 1 3 0v7c0 4-2.5 7-6 7s-5-2-6.5-4.5L3 12.5a1.5 1.5 0 0 1 2.5-1.6L8 14"/>',calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',bowl:'<path d="M3 11h18a9 9 0 0 1-18 0z"/><path d="M9 20h6M14 3l-3 7M18 4l-4.5 6"/>',cup:'<path d="M4 8h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 2.5c-.6 1 .6 2 0 3M12 2.5c-.6 1 .6 2 0 3"/>',bag:'<path d="M6 7h12l1 14H5z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/>',shield:'<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',refresh:'<path d="M20 11a8 8 0 0 0-14.3-4.9L4 8M4 4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16M20 20v-4h-4"/>',card:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/>',truck:'<path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',chevron:'<path d="M9 6l6 6-6 6"/>',bike:'<circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l4-8h5l3 8M10 9 8 5H5M15 9l1-3h3"/>',bolt:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',wrench:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/>',gauge:'<path d="M4 18a9 9 0 1 1 16 0"/><path d="M12 13l4-5"/><circle cx="12" cy="14" r="1.5"/>',share:'<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/>',link:'<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',facebook:'<path d="M15.5 3H14a4 4 0 0 0-4 4v14M6.5 10.5h8"/>'},u=(a,e=20,n="")=>`<svg class="i" width="${e}" height="${e}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ${n}>${ue[a]??""}</svg>`,L=[1,2,3,4,5,6,0],me=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];function U(a,e){let n=a.map(r=>L.indexOf(r)).sort((r,i)=>r-i);return n.every((r,i)=>i===0||r===n[i-1]+1)&&n.length>2?`${e[L[n[0]]]} \u2013 ${e[L[n.at(-1)]]}`:n.map(r=>e[L[r]]).join(", ")}var V=a=>a.map(e=>({"@type":"OpeningHoursSpecification",dayOfWeek:e.days.map(n=>me[n]),opens:e.open,closes:e.close}));function W(a){return new Intl.NumberFormat(B(a.lang),{style:"currency",currency:a.currency}).formatToParts(0).find(n=>n.type==="currency")?.value??a.currency}var q=a=>a==="phone"||a==="email"?"":'target="_blank" rel="noopener"',H=a=>`<div class="suggest" id="market-suggest" data-suggest="${t(a.market.suggest)}" hidden>
   <span data-text></span>
-  <a class="btn btn--small" data-go href="#">${e(t.market.switch)}</a>
-  <button type="button" class="suggest-x" data-close aria-label="${e(t.market.dismiss)}">\xD7</button>
-</div>`,V=(t,a)=>`<p class="status" data-open-status data-hours='${e(JSON.stringify(t.hours))}' data-tz="${e(t.timezone??"Asia/Ho_Chi_Minh")}" data-open="${e(a.visit.open)}" data-closed="${e(a.visit.closed)}" hidden></p>`,E=(t,a,s)=>t.badge===!1?"":`<a class="made" href="https://kingpes.net/${e(s==="vi"||s==="ja"?s:"en")}/?ref=badge" rel="nofollow" target="_blank">${e(a.footer.madeWith)}</a>`;function W({site:t,markets:a,url:s,abs:n}){let o=a.find(r=>r.default)??a[0],i=a.map(r=>({id:r.id,lang:r.lang,country:r.country}));return`<!doctype html>
-<html lang="${e(o.lang)}">
+  <a class="btn btn--small" data-go href="#">${t(a.market.switch)}</a>
+  <button type="button" class="suggest-x" data-close aria-label="${t(a.market.dismiss)}">\xD7</button>
+</div>`,_=(a,e)=>`<p class="status" data-open-status data-hours='${t(JSON.stringify(a.hours))}' data-tz="${t(a.timezone??"Asia/Ho_Chi_Minh")}" data-open="${t(e.visit.open)}" data-closed="${t(e.visit.closed)}" hidden></p>`,G={vi:"\u0110\xE1nh gi\xE1 ch\xFAng t\xF4i tr\xEAn Google",en:"Review us on Google",ja:"Google\u3067\u30EC\u30D3\u30E5\u30FC\u3092\u66F8\u304F",ko:"Google\uC5D0 \uD6C4\uAE30 \uB0A8\uAE30\uAE30",zh:"\u5728 Google \u4E0A\u8BC4\u4EF7\u6211\u4EEC",th:"\u0E23\u0E35\u0E27\u0E34\u0E27\u0E40\u0E23\u0E32\u0E1A\u0E19 Google",id:"Beri ulasan di Google",es:"Opina sobre nosotros en Google",fr:"Donnez votre avis sur Google",de:"Bewerten Sie uns bei Google",pt:"Avalie-nos no Google",ru:"\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u043E\u0442\u0437\u044B\u0432 \u0432 Google"},ge=/^(?:g\.page|g\.co|goo\.gl|maps\.app\.goo\.gl|(?:[a-z0-9-]+\.)*google\.[a-z.]{2,6})$/i,fe=a=>{try{let e=new URL(String(a.googleReview??"").trim());return e.protocol==="https:"&&ge.test(e.hostname)?e.href:""}catch{return""}},K=(a,e,n,o="btn btn--line")=>{let r=fe(a);if(!r)return"";let i=typeof e.reviews=="object"&&e.reviews?.google||G[n]||G.en;return`<p class="g-review" style="margin:28px 0 0;text-align:center"><a class="${o}" href="${t(r)}" target="_blank" rel="noopener">${u("star",16)} ${t(i)}</a></p>`},R={vi:{count:"{n} \u0111\xE1nh gi\xE1",prev:"\u0110\xE1nh gi\xE1 tr\u01B0\u1EDBc",next:"\u0110\xE1nh gi\xE1 ti\u1EBFp",more:"Xem th\xEAm",less:"Thu g\u1ECDn"},en:{count:"{n} reviews",prev:"Previous reviews",next:"More reviews",more:"Read more",less:"Show less"},ja:{count:"\u30EC\u30D3\u30E5\u30FC{n}\u4EF6",prev:"\u524D\u306E\u30EC\u30D3\u30E5\u30FC",next:"\u6B21\u306E\u30EC\u30D3\u30E5\u30FC",more:"\u7D9A\u304D\u3092\u8AAD\u3080",less:"\u9589\u3058\u308B"},ko:{count:"\uD6C4\uAE30 {n}\uAC1C",prev:"\uC774\uC804 \uD6C4\uAE30",next:"\uB2E4\uC74C \uD6C4\uAE30",more:"\uB354 \uBCF4\uAE30",less:"\uC811\uAE30"},zh:{count:"{n} \u6761\u8BC4\u4EF7",prev:"\u4E0A\u4E00\u7EC4\u8BC4\u4EF7",next:"\u66F4\u591A\u8BC4\u4EF7",more:"\u5C55\u5F00",less:"\u6536\u8D77"},th:{count:"{n} \u0E23\u0E35\u0E27\u0E34\u0E27",prev:"\u0E23\u0E35\u0E27\u0E34\u0E27\u0E01\u0E48\u0E2D\u0E19\u0E2B\u0E19\u0E49\u0E32",next:"\u0E23\u0E35\u0E27\u0E34\u0E27\u0E16\u0E31\u0E14\u0E44\u0E1B",more:"\u0E2D\u0E48\u0E32\u0E19\u0E15\u0E48\u0E2D",less:"\u0E22\u0E48\u0E2D"},id:{count:"{n} ulasan",prev:"Ulasan sebelumnya",next:"Ulasan berikutnya",more:"Selengkapnya",less:"Tutup"},es:{count:"{n} opiniones",prev:"Opiniones anteriores",next:"M\xE1s opiniones",more:"Leer m\xE1s",less:"Ver menos"},fr:{count:"{n} avis",prev:"Avis pr\xE9c\xE9dents",next:"Plus d\u2019avis",more:"Lire la suite",less:"R\xE9duire"},de:{count:"{n} Bewertungen",prev:"Vorherige Bewertungen",next:"Weitere Bewertungen",more:"Weiterlesen",less:"Weniger"},pt:{count:"{n} avalia\xE7\xF5es",prev:"Avalia\xE7\xF5es anteriores",next:"Mais avalia\xE7\xF5es",more:"Ler mais",less:"Mostrar menos"},ru:{count:"\u041E\u0442\u0437\u044B\u0432\u043E\u0432: {n}",prev:"\u041F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0438\u0435 \u043E\u0442\u0437\u044B\u0432\u044B",next:"\u0415\u0449\u0451 \u043E\u0442\u0437\u044B\u0432\u044B",more:"\u0427\u0438\u0442\u0430\u0442\u044C \u0434\u0430\u043B\u044C\u0448\u0435",less:"\u0421\u0432\u0435\u0440\u043D\u0443\u0442\u044C"}},J={vi:"vi-VN",en:"en-US",ja:"ja-JP",ko:"ko-KR",zh:"zh-CN",th:"th-TH",id:"id-ID",es:"es-ES",fr:"fr-FR",de:"de-DE",pt:"pt-BR",ru:"ru-RU"},Z=a=>(a.reviews??[]).filter(e=>e&&(e.name||e.text)&&!(typeof e.text=="object"&&e.text&&!Object.values(e.text).some(Boolean)&&!e.name));function Y(a,e){let n=/^(\d{4})-(\d{2})(?:-(\d{2}))?$/.exec(String(a?.date??"").trim());if(!n)return"";let o=new Date(Date.UTC(+n[1],+n[2]-1,+(n[3]??1)));if(Number.isNaN(o.getTime()))return"";let r=new Intl.DateTimeFormat(J[e]??"en-US",{month:"long",year:"numeric",timeZone:"UTC"}).format(o);return`<time class="rv-date" datetime="${t(a.date)}">${t(r)}</time>`}function ve(a,e){let n=a.filter(s=>s.rating>=1&&s.rating<=5);if(n.length<2)return"";let o=n.reduce((s,d)=>s+Number(d.rating),0)/n.length,r=R[e]??R.en,i=new Intl.NumberFormat(J[e]??"en-US",{minimumFractionDigits:1,maximumFractionDigits:1}).format(o);return`<p class="rv-sum"><span class="rv-sum-star" aria-hidden="true">${u("star",18)}</span><strong>${i}</strong><span>\xB7</span><span>${t(r.count.replace("{n}",String(a.length)))}</span></p>`}function X(a,e,n,o){if(!a.length)return"";let r=R[e]??R.en,i=s=>`<button type="button" class="rv-btn" data-rv-${s} aria-label="${t(s==="prev"?r.prev:r.next)}">${u("arrow",18,s==="prev"?'style="transform:scaleX(-1)"':"")}</button>`;return`${ve(a,e)}<div class="rv" data-rv data-more="${t(r.more)}" data-less="${t(r.less)}">
+      <div class="${n} rv-track" tabindex="0">${a.map(o).join("")}</div>
+      <div class="rv-nav" hidden>${i("prev")}${i("next")}</div>
+    </div>${ye}`}var ye=`<style>
+.rv{--rv-gap:20px}
+.rv>.rv-track.rv-track{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 2 * var(--rv-gap)) / 3);gap:var(--rv-gap);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;padding:2px;margin:-2px}
+.rv>.rv-track::-webkit-scrollbar{display:none}
+.rv>.rv-track>*{scroll-snap-align:start;min-width:0;margin:0}
+.rv>.rv-track>*>figcaption{margin-top:auto}
+.rv>.rv-track blockquote{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;line-clamp:4;overflow:hidden}
+.rv.rv-x>.rv-track.rv-track{align-items:start}
+.rv>.rv-track .rv-open blockquote{-webkit-line-clamp:unset;line-clamp:unset;overflow:visible}
+.rv-more{align-self:flex-start;padding:0;border:0;background:none;color:inherit;font:inherit;font-size:13px;font-weight:600;text-decoration:underline;cursor:pointer;opacity:.75}
+.rv-date{display:block;margin-top:2px;font-size:12px;font-weight:400;opacity:.65}
+.rv-nav{display:flex;justify-content:center;gap:12px;margin-top:22px}
+.rv-nav[hidden]{display:none}
+.rv-btn{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer}
+.rv-btn:disabled{opacity:.3;cursor:default}
+.rv-sum{display:flex;align-items:center;justify-content:flex-start;gap:8px;margin:-8px 0 24px;font-size:15px}
+.h2.center~.rv-sum{justify-content:center}
+.rv-sum-star{display:inline-flex;color:#E3A72F}.rv-sum-star svg{fill:currentColor}
+@media (max-width:960px){.rv>.rv-track.rv-track{grid-auto-columns:calc((100% - var(--rv-gap)) / 2)}}
+@media (max-width:640px){.rv{--rv-gap:14px}.rv>.rv-track.rv-track{grid-auto-columns:86%}}
+</style><script>(()=>{for(const rv of document.querySelectorAll('[data-rv]')){if(rv.dataset.ready)continue;rv.dataset.ready=1;const t=rv.querySelector('.rv-track'),nav=rv.querySelector('.rv-nav'),p=rv.querySelector('[data-rv-prev]'),n=rv.querySelector('[data-rv-next]');
+const step=()=>{const c=t.children[0];return c?c.getBoundingClientRect().width+parseFloat(getComputedStyle(t).columnGap||0):t.clientWidth};
+const upd=()=>{const max=t.scrollWidth-t.clientWidth-2;nav.hidden=max<=0;p.disabled=t.scrollLeft<=2;n.disabled=t.scrollLeft>=max};
+p.onclick=()=>t.scrollBy({left:-step(),behavior:'smooth'});n.onclick=()=>t.scrollBy({left:step(),behavior:'smooth'});
+t.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);
+for(const c of t.children){const q=c.querySelector('blockquote');if(!q||q.scrollHeight<=q.clientHeight+2)continue;const b=document.createElement('button');b.type='button';b.className='rv-more';b.textContent=rv.dataset.more;b.setAttribute('aria-expanded','false');b.onclick=()=>{const o=c.classList.toggle('rv-open');rv.classList.toggle('rv-x',!!t.querySelector('.rv-open'));b.textContent=o?rv.dataset.less:rv.dataset.more;b.setAttribute('aria-expanded',String(o))};q.after(b)}
+upd()}})()<\/script>`,I={vi:{label:"Chia s\u1EBB",native:"G\u1EEDi qua Zalo, Messenger\u2026",copy:"Sao ch\xE9p link",copied:"\u0110\xE3 sao ch\xE9p"},en:{label:"Share",native:"Send via apps\u2026",copy:"Copy link",copied:"Copied"},ja:{label:"\u30B7\u30A7\u30A2",native:"\u30A2\u30D7\u30EA\u3067\u9001\u308B\u2026",copy:"\u30EA\u30F3\u30AF\u3092\u30B3\u30D4\u30FC",copied:"\u30B3\u30D4\u30FC\u3057\u307E\u3057\u305F"},ko:{label:"\uACF5\uC720",native:"\uC571\uC73C\uB85C \uBCF4\uB0B4\uAE30\u2026",copy:"\uB9C1\uD06C \uBCF5\uC0AC",copied:"\uBCF5\uC0AC\uB428"},zh:{label:"\u5206\u4EAB",native:"\u901A\u8FC7\u5E94\u7528\u53D1\u9001\u2026",copy:"\u590D\u5236\u94FE\u63A5",copied:"\u5DF2\u590D\u5236"},th:{label:"\u0E41\u0E0A\u0E23\u0E4C",native:"\u0E2A\u0E48\u0E07\u0E1C\u0E48\u0E32\u0E19\u0E41\u0E2D\u0E1B\u2026",copy:"\u0E04\u0E31\u0E14\u0E25\u0E2D\u0E01\u0E25\u0E34\u0E07\u0E01\u0E4C",copied:"\u0E04\u0E31\u0E14\u0E25\u0E2D\u0E01\u0E41\u0E25\u0E49\u0E27"},id:{label:"Bagikan",native:"Kirim lewat aplikasi\u2026",copy:"Salin tautan",copied:"Tersalin"},es:{label:"Compartir",native:"Enviar por apps\u2026",copy:"Copiar enlace",copied:"Copiado"},fr:{label:"Partager",native:"Envoyer via une app\u2026",copy:"Copier le lien",copied:"Copi\xE9"},de:{label:"Teilen",native:"Per App senden\u2026",copy:"Link kopieren",copied:"Kopiert"},pt:{label:"Compartilhar",native:"Enviar por apps\u2026",copy:"Copiar link",copied:"Copiado"},ru:{label:"\u041F\u043E\u0434\u0435\u043B\u0438\u0442\u044C\u0441\u044F",native:"\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u0447\u0435\u0440\u0435\u0437 \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435\u2026",copy:"\u041A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443",copied:"\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u043E"}};function Q(a){let e=I[a]??I.en,n="display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border:1px solid currentColor;border-radius:999px;background:none;color:inherit;font:inherit;font-size:13px;text-decoration:none;cursor:pointer;opacity:.85";return`<div class="kp-share" data-share data-copied="${t(e.copied)}" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px;font-size:13px">
+      <span style="opacity:.65">${t(e.label)}</span>
+      <button type="button" data-share-native hidden style="${n}">${u("share",15)} ${t(e.native)}</button>
+      <a data-share-fb href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener" style="${n}">${u("facebook",15)} Facebook</a>
+      <button type="button" data-share-copy style="${n}">${u("link",15)} <span>${t(e.copy)}</span></button>
+    </div>`}var ee=(a,e,n)=>a.badge===!1?"":`<a class="made" href="https://kingpes.net/${t(n==="vi"||n==="ja"?n:"en")}/?ref=badge" rel="nofollow" target="_blank">${t(e.footer.madeWith)}</a>`;function te({site:a,markets:e,url:n,abs:o}){let r=e.find(s=>s.default)??e[0],i=e.map(s=>({id:s.id,lang:s.lang,country:s.country}));return`<!doctype html>
+<html lang="${t(r.lang)}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${e(t.name)}</title>
-<link rel="canonical" href="${n(`${o.id}/`)}">
-${a.map(r=>`<link rel="alternate" hreflang="${e(r.lang)}-${e(r.country)}" href="${n(`${r.id}/`)}">`).join(`
+<title>${t(a.name)}</title>
+<link rel="canonical" href="${o(`${r.id}/`)}">
+${e.map(s=>`<link rel="alternate" hreflang="${t(s.lang)}-${t(s.country)}" href="${o(`${s.id}/`)}">`).join(`
 `)}
 <script>
 (function () {
-  var markets = ${JSON.stringify(i)}, root = ${JSON.stringify(s(""))};
+  var markets = ${JSON.stringify(i)}, root = ${JSON.stringify(n(""))};
   var prefs = (navigator.languages || [navigator.language || '']).map(function (l) { return l.toLowerCase(); });
   var pick = null;
   prefs.some(function (p) { var parts = p.split('-'); return markets.some(function (m) {
@@ -22,208 +56,209 @@ ${a.map(r=>`<link rel="alternate" hreflang="${e(r.lang)}-${e(r.country)}" href="
 })();
 <\/script>
 </head>
-<body><p>${a.map(r=>`<a href="${s(`${r.id}/`)}">${e(r.country)}</a>`).join(" \xB7 ")}</p></body>
+<body><p>${e.map(s=>`<a href="${n(`${s.id}/`)}">${t(s.country)}</a>`).join(" \xB7 ")}</p></body>
 </html>
-`}var re="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap",Y=24;function K(t,a){return t.products.map(s=>({...s,variants:s.variants.map(n=>({...n,price:P(n,a)})).filter(n=>n.price!=null)})).filter(s=>s.variants.length>0).map(s=>({...s,from:Math.min(...s.variants.map(n=>n.price))}))}function ie(t){let a=t.filter(i=>i.badge?.en==="Best seller"),s=t.filter(i=>!a.includes(i)),n=[...new Set(s.map(i=>i.category))].map(i=>s.filter(r=>r.category===i)),o=[...a];for(let i=0;o.length<t.length;i++)for(let r of n)r[i]&&o.push(r[i]);return o}var ce=t=>String(t).normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/đ/g,"d").replace(/Đ/g,"D").toLowerCase();function Re({site:t,catalog:a,i18n:s,template:n,basePath:o="/",siteUrl:i=t.domain}){let r=F(o),h=$=>new URL(r($),i).href,l=a.markets,p=($,g)=>`${g.id}/${A($.slug,g.lang,"en")}/`,u=[];for(let $ of l){let g=$.lang,w=s[g]??s.en??s.vi,f=b=>A(b,g,"en"),y=K(a,$),M=t.orderChannels?.[$.id]??["phone"],v={site:t,catalog:a,market:$,markets:l,lang:g,t:w,L:f,url:r,abs:h,channels:M,money:b=>D(b,$),items:y,productPath:p,template:n,name:(b,S)=>f(b?.find(I=>I.id===S)?.name??S)};u.push({path:`${$.id}/index.html`,html:J(v,{kind:"home"})});for(let b of y)u.push({path:`${p(b,$)}index.html`,html:J(v,{kind:"product",product:b})})}return u.push({path:"index.html",html:W({site:t,markets:l,url:r,abs:h})}),u}function J(t,a){let{site:s,market:n,markets:o,lang:i,t:r,L:h,url:l,abs:p,catalog:u,productPath:$,channels:g,money:w}=t,f=a.kind==="home",y=a.product,M=f?`${n.id}/`:$(y,n),j=f?`${s.name} \xB7 ${h(s.tagline)}`:`${h(y.name)} \xB7 ${s.name}`,c=f?h(s.intro):`${h(y.description)} ${r.from} ${w(y.from)}.`,v=o.map(d=>f?{m:d,href:`${d.id}/`}:K({products:[u.products.find(C=>C.id===y.id)]},d).length?{m:d,href:$(y,d)}:null).filter(Boolean),b=d=>v.find(C=>C.m.id===d.id)?.href??`${d.id}/`,S=o.find(d=>d.default)??o[0],I=s.theme??{},G=["primary","ink","bg","surface","soft","accent"].filter(d=>I[d]).map(d=>`--${d}:${I[d]}`).join(";"),X=o.map(d=>({id:d.id,lang:d.lang,country:d.country,currency:d.currency,href:l(b(d))})),N=g[0],Z=p(f?z(s.heroImages?.[0]??"photos/flower-market.webp"):z(y.image));return`<!doctype html>
-<html lang="${e(i)}">
+`}var be="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap",ne=24;function oe(a,e){return a.products.map(n=>({...n,variants:n.variants.map(o=>({...o,price:F(o,e)})).filter(o=>o.price!=null)})).filter(n=>n.variants.length>0).map(n=>({...n,from:Math.min(...n.variants.map(o=>o.price))}))}function $e(a){let e=a.filter(i=>i.badge?.en==="Best seller"),n=a.filter(i=>!e.includes(i)),o=[...new Set(n.map(i=>i.category))].map(i=>n.filter(s=>s.category===i)),r=[...e];for(let i=0;r.length<a.length;i++)for(let s of o)s[i]&&r.push(s[i]);return r}var ke=a=>String(a).normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/đ/g,"d").replace(/Đ/g,"D").toLowerCase();function Ye({site:a,catalog:e,i18n:n,template:o,basePath:r="/",siteUrl:i=a.domain}){let s=A(r),d=m=>new URL(s(m),i).href,l=e.markets,p=(m,v)=>`${v.id}/${C(m.slug,v.lang,"en")}/`,g=[];for(let m of l){let v=m.lang,k=n[v]??n.en??n.vi,f=$=>C($,v,"en"),y=oe(e,m),x=a.orderChannels?.[m.id]??["phone"],b={site:a,catalog:e,market:m,markets:l,lang:v,t:k,L:f,url:s,abs:d,channels:x,money:$=>O($,m),items:y,productPath:p,template:o,name:($,N)=>f($?.find(z=>z.id===N)?.name??N)};g.push({path:`${m.id}/index.html`,html:ae(b,{kind:"home"})});for(let $ of y)g.push({path:`${p($,m)}index.html`,html:ae(b,{kind:"product",product:$})})}return g.push({path:"index.html",html:te({site:a,markets:l,url:s,abs:d})}),g}function ae(a,e){let{site:n,market:o,markets:r,lang:i,t:s,L:d,url:l,abs:p,catalog:g,productPath:m,channels:v,money:k}=a,f=e.kind==="home",y=e.product,x=f?`${o.id}/`:m(y,o),S=f?`${n.name} \xB7 ${d(n.tagline)}`:`${d(y.name)} \xB7 ${n.name}`,c=f?d(n.intro):`${d(y.description)} ${s.from} ${k(y.from)}.`,b=r.map(h=>f?{m:h,href:`${h.id}/`}:oe({products:[g.products.find(j=>j.id===y.id)]},h).length?{m:h,href:m(y,h)}:null).filter(Boolean),$=h=>b.find(j=>j.m.id===h.id)?.href??`${h.id}/`,N=r.find(h=>h.default)??r[0],z=n.theme??{},se=["primary","ink","bg","surface","soft","accent"].filter(h=>z[h]).map(h=>`--${h}:${z[h]}`).join(";"),ie=r.map(h=>({id:h.id,lang:h.lang,country:h.country,currency:h.currency,href:l($(h))})),E=v[0],ce=p(f?P(n.heroImages?.[0]??"photos/flower-market.webp"):P(y.image));return`<!doctype html>
+<html lang="${t(i)}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>${e(j)}</title>
-<meta name="description" content="${e(c)}">
-<link rel="canonical" href="${p(M)}">
-${v.map(({m:d,href:C})=>`<link rel="alternate" hreflang="${e(d.lang)}-${e(d.country)}" href="${p(C)}">`).join(`
+<title>${t(S)}</title>
+<meta name="description" content="${t(c)}">
+<link rel="canonical" href="${p(x)}">
+${b.map(({m:h,href:j})=>`<link rel="alternate" hreflang="${t(h.lang)}-${t(h.country)}" href="${p(j)}">`).join(`
 `)}
-${v.some(d=>d.m.id===S.id)?`<link rel="alternate" hreflang="x-default" href="${p(b(S))}">`:""}
+${b.some(h=>h.m.id===N.id)?`<link rel="alternate" hreflang="x-default" href="${p($(N))}">`:""}
 <meta property="og:type" content="${f?"website":"product"}">
-<meta property="og:title" content="${e(j)}">
-<meta property="og:description" content="${e(c)}">
-<meta property="og:url" content="${p(M)}">
-<meta property="og:image" content="${e(Z)}">
-<meta property="og:site_name" content="${e(s.name)}">
-<meta name="theme-color" content="${e(I.primary??"#B83260")}">
+<meta property="og:title" content="${t(S)}">
+<meta property="og:description" content="${t(c)}">
+<meta property="og:url" content="${p(x)}">
+<meta property="og:image" content="${t(ce)}">
+<meta property="og:site_name" content="${t(n.name)}">
+<meta name="theme-color" content="${t(z.primary??"#B83260")}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="${re}">
+<link rel="stylesheet" href="${be}">
 <link rel="stylesheet" href="${l("assets/style.css")}">
-<style>:root{${G}}</style>
-${f?R(Me(t))+(s.faq?.length?R(ke(t)):""):R(xe(t,y))+R(je(t,y))}
+<style>:root{${se}}</style>
+${f?T(qe(a))+(n.faq?.length?T(Ee(a)):""):T(Be(a,y))+T(Fe(a,y))}
 <script src="${l("assets/site.js")}" defer><\/script>
 </head>
-<body data-market="${e(n.id)}" data-markets='${e(JSON.stringify(X))}' data-copied="${e(r.copied)}" data-wa="${e(k(s.contact.whatsapp??""))}" data-email="${e(s.contact.email??"")}">
-<a class="skip" href="#main">${e(r.skip)}</a>
-${_(r)}
-${s.announcement?`<p class="announce">${e(h(s.announcement))}</p>`:""}
-${le(t,f)}
+<body data-market="${t(o.id)}" data-markets='${t(JSON.stringify(ie))}' data-copied="${t(s.copied)}" data-wa="${t(w(n.contact.whatsapp??""))}" data-email="${t(n.contact.email??"")}">
+<a class="skip" href="#main">${t(s.skip)}</a>
+${H(s)}
+${n.announcement?`<p class="announce">${t(d(n.announcement))}</p>`:""}
+${xe(a,f)}
 <main id="main">
-${f?[pe,de,he,me,$e,ue,fe,ge,ve].map(d=>d(t)).join(`
-`):be(t,y)}
+${f?[we,De,Se,Pe,Ne,ze,je,Me,Ce].map(h=>h(a)).join(`
+`):Le(a,y)}
 </main>
-${we(t)}
-<nav class="dock" aria-label="${e(r.nav.order)}">
-  ${f?`<a href="#shop">${m("search",20)}<span>${e(r.nav.shop)}</span></a>`:`<a href="${l(`${n.id}/`)}#shop">${m("search",20)}<span>${e(r.nav.shop)}</span></a>`}
-  <a class="primary" href="${e(f?O(N,s.contact):"#order")}" ${f?q(N):""}>${m(N,20)}<span>${e(r.nav.order)}</span></a>
+${Re(a)}
+<nav class="dock" aria-label="${t(s.nav.order)}">
+  ${f?`<a href="#shop">${u("search",20)}<span>${t(s.nav.shop)}</span></a>`:`<a href="${l(`${o.id}/`)}#shop">${u("search",20)}<span>${t(s.nav.shop)}</span></a>`}
+  <a class="primary" href="${t(f?M(E,n.contact):"#order")}" ${f?q(E):""}>${u(E,20)}<span>${t(s.nav.order)}</span></a>
 </nav>
 </body>
 </html>
-`}function le({site:t,market:a,markets:s,t:n,url:o,channels:i},r){let h=r?"":o(`${a.id}/`),l=[[`${h}#shop`,n.nav.shop],[`${h}#occasions`,n.nav.occasions],[`${h}#how`,n.nav.how],[`${h}#visit`,n.nav.contact]];return`<header class="header">
+`}function xe({site:a,market:e,markets:n,t:o,url:r,channels:i},s){let d=s?"":r(`${e.id}/`),l=[[`${d}#shop`,o.nav.shop],[`${d}#occasions`,o.nav.occasions],[`${d}#how`,o.nav.how],[`${d}#visit`,o.nav.contact]];return`<header class="header">
   <div class="wrap bar">
-    <a class="brand" href="${o(`${a.id}/`)}">
-      ${t.logo?`<img src="${e(x(o,t.logo))}" alt="" width="40" height="40">`:`<span class="brand-mark" aria-hidden="true">${m("leaf",20)}</span>`}
-      <span>${e(t.name)}</span>
+    <a class="brand" href="${r(`${e.id}/`)}">
+      ${a.logo?`<img src="${t(D(r,a.logo))}" alt="" width="40" height="40">`:`<span class="brand-mark" aria-hidden="true">${u("leaf",20)}</span>`}
+      <span>${t(a.name)}</span>
     </a>
-    <nav class="nav" aria-label="Menu">${l.map(([p,u])=>`<a href="${p}">${e(u)}</a>`).join("")}</nav>
+    <nav class="nav" aria-label="Menu">${l.map(([p,g])=>`<a href="${p}">${t(g)}</a>`).join("")}</nav>
     <div class="bar-end">
       <details class="market">
-        <summary aria-label="${e(n.market.label)}">${m("globe",18)}<span>${e(a.id.toUpperCase())}<span class="cur"> \xB7 ${e(B(a))}</span></span></summary>
-        <ul>${s.map(p=>`<li><a href="${o(`${p.id}/`)}" hreflang="${e(p.lang)}"${p.id===a.id?' aria-current="true"':""}>${e(p.country)} \xB7 ${e(p.currency)}</a></li>`).join("")}</ul>
+        <summary aria-label="${t(o.market.label)}">${u("globe",18)}<span>${t(e.id.toUpperCase())}<span class="cur"> \xB7 ${t(W(e))}</span></span></summary>
+        <ul>${n.map(p=>`<li><a href="${r(`${p.id}/`)}" hreflang="${t(p.lang)}"${p.id===e.id?' aria-current="true"':""}>${t(p.country)} \xB7 ${t(p.currency)}</a></li>`).join("")}</ul>
       </details>
-      ${t.contact.phone?`<a class="btn btn--primary hide-sm" href="tel:${k(t.contact.phone)}">${m("phone",18)} ${e(t.contact.phone)}</a>`:""}
+      ${a.contact.phone?`<a class="btn btn--primary hide-sm" href="tel:${w(a.contact.phone)}">${u("phone",18)} ${t(a.contact.phone)}</a>`:""}
       <details class="mnav">
-        <summary aria-label="${e(n.nav.openMenu)}">${m("menu",22)}</summary>
-        <nav aria-label="Menu">${l.map(([p,u])=>`<a href="${p}">${e(u)}</a>`).join("")}</nav>
+        <summary aria-label="${t(o.nav.openMenu)}">${u("menu",22)}</summary>
+        <nav aria-label="Menu">${l.map(([p,g])=>`<a href="${p}">${t(g)}</a>`).join("")}</nav>
       </details>
     </div>
   </div>
-</header>`}function pe({site:t,t:a,L:s,url:n,items:o}){let i=(t.heroImages?.length?t.heroImages:o.slice(0,3).map(r=>r.image)).slice(0,3);return`<section class="hero">
+</header>`}function we({site:a,t:e,L:n,url:o,items:r}){let i=(a.heroImages?.length?a.heroImages:r.slice(0,3).map(s=>s.image)).slice(0,3);return`<section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <h1>${e(s(t.tagline))}</h1>
-      <p class="lead">${e(s(t.intro))}</p>
+      <h1>${t(n(a.tagline))}</h1>
+      <p class="lead">${t(n(a.intro))}</p>
       <div class="actions">
-        <a class="btn btn--primary btn--lg" href="#shop">${e(a.hero.shop)} ${m("arrow",18)}</a>
-        ${t.contact.phone?`<a class="btn btn--line btn--lg" href="tel:${k(t.contact.phone)}">${m("phone",18)} ${e(a.hero.call)}</a>`:""}
+        <a class="btn btn--primary btn--lg" href="#shop">${t(e.hero.shop)} ${u("arrow",18)}</a>
+        ${a.contact.phone?`<a class="btn btn--line btn--lg" href="tel:${w(a.contact.phone)}">${u("phone",18)} ${t(e.hero.call)}</a>`:""}
       </div>
     </div>
     <div class="collage" aria-hidden="true">
-      ${i.map((r,h)=>`<img class="c${h+1}" src="${e(x(n,r))}" alt="" width="800" height="800"${h?' loading="lazy"':' fetchpriority="high"'}>`).join("")}
+      ${i.map((s,d)=>`<img sizes="auto, (max-width: 640px) 50vw, 280px" class="c${d+1}" src="${t(D(o,s))}" alt="" width="800" height="800"${d?' loading="lazy"':' fetchpriority="high"'}>`).join("")}
     </div>
   </div>
-</section>`}function de({site:t,L:a}){return t.perks?.length?`<section class="perks" aria-label="${e(t.name)}">
-  <ul class="wrap perk-list">${t.perks.map(s=>`<li>${m(s.icon??"check",22)}<div><b>${e(a(s.title))}</b>${s.text?`<span>${e(a(s.text))}</span>`:""}</div></li>`).join("")}</ul>
-</section>`:""}function he({catalog:t,items:a,t:s,L:n,url:o}){let i=(t.occasions??[]).map(r=>({...r,n:a.filter(h=>h.occasions?.includes(r.id)).length})).filter(r=>r.n);return i.length?`<section class="section" id="occasions" aria-labelledby="occ-title">
+</section>`}function De({site:a,L:e}){return a.perks?.length?`<section class="perks" aria-label="${t(a.name)}">
+  <ul class="wrap perk-list">${a.perks.map(n=>`<li>${u(n.icon??"check",22)}<div><b>${t(e(n.title))}</b>${n.text?`<span>${t(e(n.text))}</span>`:""}</div></li>`).join("")}</ul>
+</section>`:""}function Se({catalog:a,items:e,t:n,L:o,url:r}){let i=(a.occasions??[]).map(s=>({...s,n:e.filter(d=>d.occasions?.includes(s.id)).length})).filter(s=>s.n);return i.length?`<section class="section" id="occasions" aria-labelledby="occ-title">
   <div class="wrap">
-    <h2 id="occ-title" class="h2">${e(s.occasions.title)}</h2>
-    <ul class="occ">${i.map(r=>`<li><a href="?occ=${e(r.id)}#shop" data-occ-link="${e(r.id)}">
-      ${r.image?`<img src="${e(x(o,r.image))}" alt="" width="800" height="800" loading="lazy">`:""}
-      <span class="occ-name">${e(n(r.name))}</span><span class="occ-n">${e(s.occasions.count.replace("{n}",r.n))}</span>
+    <h2 id="occ-title" class="h2">${t(n.occasions.title)}</h2>
+    <ul class="occ">${i.map(s=>`<li><a href="?occ=${t(s.id)}#shop" data-occ-link="${t(s.id)}">
+      ${s.image?`<img sizes="auto, (max-width: 640px) 50vw, 280px" src="${t(D(r,s.image))}" alt="" width="800" height="800" loading="lazy">`:""}
+      <span class="occ-name">${t(o(s.name))}</span><span class="occ-n">${t(n.occasions.count.replace("{n}",s.n))}</span>
     </a></li>`).join("")}</ul>
   </div>
-</section>`:""}function Q(t,a,s=0){let{t:n,L:o,url:i,money:r,productPath:h,market:l,catalog:p,name:u}=t,$=[o(a.name),a.name?.vi,a.name?.en,u(p.categories,a.category),...a.flowers.map(g=>u(p.flowers,g)),...a.occasions.map(g=>u(p.occasions,g))].filter(Boolean).join(" ");return`<li class="card${s>=Y?" is-more":""}" data-type="${e(a.category)}" data-occ="${e(a.occasions.join(" "))}" data-fl="${e(a.flowers.join(" "))}" data-price="${a.from}" data-name="${e(ce($))}">
-  <a class="card-link" href="${i(h(a,l))}">
-    <div class="card-img"><img src="${e(x(i,a.image))}" alt="${e(o(a.name))}" width="800" height="800" loading="lazy">${a.badge?`<span class="tag">${e(o(a.badge))}</span>`:""}</div>
-    <h3>${e(o(a.name))}</h3>
-    <p class="card-price"><small>${e(n.from)}</small> ${e(r(a.from))}</p>
-    ${a.variants.length>1?`<p class="card-sizes">${a.variants.map(g=>`<span>${e(o(g.size))}</span>`).join("")}</p>`:""}
+</section>`:""}function re(a,e,n=0){let{t:o,L:r,url:i,money:s,productPath:d,market:l,catalog:p,name:g}=a,m=[r(e.name),e.name?.vi,e.name?.en,g(p.categories,e.category),...e.flowers.map(v=>g(p.flowers,v)),...e.occasions.map(v=>g(p.occasions,v))].filter(Boolean).join(" ");return`<li class="card${n>=ne?" is-more":""}" data-type="${t(e.category)}" data-occ="${t(e.occasions.join(" "))}" data-fl="${t(e.flowers.join(" "))}" data-price="${e.from}" data-name="${t(ke(m))}">
+  <a class="card-link" href="${i(d(e,l))}">
+    <div class="card-img"><img sizes="auto, (max-width: 640px) 50vw, 280px" src="${t(D(i,e.image))}" alt="${t(r(e.name))}" width="800" height="800" loading="lazy">${e.badge?`<span class="tag">${t(r(e.badge))}</span>`:""}</div>
+    <h3>${t(r(e.name))}</h3>
+    <p class="card-price"><small>${t(o.from)}</small> ${t(s(e.from))}</p>
+    ${e.variants.length>1?`<p class="card-sizes">${e.variants.map(v=>`<span>${t(r(v.size))}</span>`).join("")}</p>`:""}
   </a>
-</li>`}function me(t){let{items:a,catalog:s,t:n,L:o}=t,i=s.categories.filter(l=>a.some(p=>p.category===l.id)),r=(s.occasions??[]).filter(l=>a.some(p=>p.occasions?.includes(l.id))),h=(s.flowers??[]).filter(l=>a.some(p=>p.flowers?.includes(l.id)));return`<section class="section section--soft" id="shop" aria-labelledby="shop-title">
+</li>`}function Pe(a){let{items:e,catalog:n,t:o,L:r}=a,i=n.categories.filter(l=>e.some(p=>p.category===l.id)),s=(n.occasions??[]).filter(l=>e.some(p=>p.occasions?.includes(l.id))),d=(n.flowers??[]).filter(l=>e.some(p=>p.flowers?.includes(l.id)));return`<section class="section section--soft" id="shop" aria-labelledby="shop-title">
   <div class="wrap">
     <div class="shop-head">
-      <h2 id="shop-title" class="h2">${e(n.shop.title)}</h2>
-      <p class="muted" data-count="${e(n.shop.count)}">${e(n.shop.count.replace("{n}",a.length))}</p>
+      <h2 id="shop-title" class="h2">${t(o.shop.title)}</h2>
+      <p class="muted" data-count="${t(o.shop.count)}">${t(o.shop.count.replace("{n}",e.length))}</p>
     </div>
     <div class="toolbar" data-toolbar>
-      <div class="chips" role="group" aria-label="${e(n.shop.all)}">
-        <button type="button" class="pill is-on" data-type="">${e(n.shop.all)}</button>
-        ${i.map(l=>`<button type="button" class="pill" data-type="${e(l.id)}">${e(o(l.name))}</button>`).join("")}
+      <div class="chips" role="group" aria-label="${t(o.shop.all)}">
+        <button type="button" class="pill is-on" data-type="">${t(o.shop.all)}</button>
+        ${i.map(l=>`<button type="button" class="pill" data-type="${t(l.id)}">${t(r(l.name))}</button>`).join("")}
       </div>
       <div class="filters">
-        <label class="search">${m("search",18)}<input type="search" placeholder="${e(n.search)}" aria-label="${e(n.search)}" data-search></label>
-        <label class="select"><span class="sr">${e(n.shop.occasion)}</span><select data-occ><option value="">${e(n.shop.anyOccasion)}</option>${r.map(l=>`<option value="${e(l.id)}">${e(o(l.name))}</option>`).join("")}</select></label>
-        <label class="select"><span class="sr">${e(n.shop.flower)}</span><select data-fl><option value="">${e(n.shop.anyFlower)}</option>${h.map(l=>`<option value="${e(l.id)}">${e(o(l.name))}</option>`).join("")}</select></label>
-        <label class="select"><span class="sr">${e(n.shop.sort)}</span><select data-sort>
-          <option value="">${e(n.shop.sortPop)}</option><option value="asc">${e(n.shop.sortLow)}</option><option value="desc">${e(n.shop.sortHigh)}</option>
+        <label class="search">${u("search",18)}<input type="search" placeholder="${t(o.search)}" aria-label="${t(o.search)}" data-search></label>
+        <label class="select"><span class="sr">${t(o.shop.occasion)}</span><select data-occ><option value="">${t(o.shop.anyOccasion)}</option>${s.map(l=>`<option value="${t(l.id)}">${t(r(l.name))}</option>`).join("")}</select></label>
+        <label class="select"><span class="sr">${t(o.shop.flower)}</span><select data-fl><option value="">${t(o.shop.anyFlower)}</option>${d.map(l=>`<option value="${t(l.id)}">${t(r(l.name))}</option>`).join("")}</select></label>
+        <label class="select"><span class="sr">${t(o.shop.sort)}</span><select data-sort>
+          <option value="">${t(o.shop.sortPop)}</option><option value="asc">${t(o.shop.sortLow)}</option><option value="desc">${t(o.shop.sortHigh)}</option>
         </select></label>
       </div>
     </div>
-    <ul class="grid" data-grid>${ie(a).map((l,p)=>Q(t,l,p)).join("")}</ul>
-    <p class="empty muted" data-empty hidden>${e(n.shop.empty)}</p>
-    ${a.length>Y?`<div class="more"><button type="button" class="btn btn--line btn--lg" data-more hidden>${e(n.shop.more)}</button></div>`:""}
+    <ul class="grid" data-grid>${$e(e).map((l,p)=>re(a,l,p)).join("")}</ul>
+    <p class="empty muted" data-empty hidden>${t(o.shop.empty)}</p>
+    ${e.length>ne?`<div class="more"><button type="button" class="btn btn--line btn--lg" data-more hidden>${t(o.shop.more)}</button></div>`:""}
   </div>
-</section>`}function $e({site:t,t:a,L:s}){return t.steps?.length?`<section class="section" id="how" aria-labelledby="how-title">
+</section>`}function Ne({site:a,t:e,L:n}){return a.steps?.length?`<section class="section" id="how" aria-labelledby="how-title">
   <div class="wrap">
-    <h2 id="how-title" class="h2">${e(a.steps.title)}</h2>
-    <ol class="steps">${t.steps.map((n,o)=>`<li><span class="step-n">${o+1}</span><h3>${e(s(n.title))}</h3><p class="muted">${e(s(n.text))}</p></li>`).join("")}</ol>
+    <h2 id="how-title" class="h2">${t(e.steps.title)}</h2>
+    <ol class="steps">${a.steps.map((o,r)=>`<li><span class="step-n">${r+1}</span><h3>${t(n(o.title))}</h3><p class="muted">${t(n(o.text))}</p></li>`).join("")}</ol>
   </div>
-</section>`:""}function ue({site:t,L:a,url:s}){let n=t.story;return n?`<section class="section section--soft" aria-labelledby="story-title">
+</section>`:""}function ze({site:a,L:e,url:n}){let o=a.story;return o?`<section class="section section--soft" aria-labelledby="story-title">
   <div class="wrap story">
-    <figure class="story-img"><img src="${e(x(s,n.image??"photos/shop-buckets.webp"))}" alt="" width="1400" height="900" loading="lazy"></figure>
-    <div><h2 id="story-title" class="h2">${e(a(n.title))}</h2>${n.body?`<p class="lead">${e(a(n.body))}</p>`:""}</div>
+    <figure class="story-img"><img sizes="auto, (max-width: 640px) 100vw, 580px" src="${t(D(n,o.image??"photos/shop-buckets.webp"))}" alt="" width="1400" height="900" loading="lazy"></figure>
+    <div><h2 id="story-title" class="h2">${t(e(o.title))}</h2>${o.body?`<p class="lead">${t(e(o.body))}</p>`:""}</div>
   </div>
-</section>`:""}function fe({site:t,t:a,L:s}){return t.reviews?.length?`<section class="section" aria-labelledby="rev-title">
+</section>`:""}function je({site:a,t:e,L:n,lang:o}){let r=K(a,e,o,"btn btn--line"),i=Z(a);return a.showReviews===!1||!i.length&&!r?"":`<section class="section" aria-labelledby="rev-title">
   <div class="wrap">
-    <h2 id="rev-title" class="h2">${e(a.reviews.title)}</h2>
-    <div class="reviews">${t.reviews.map(n=>`<figure class="review">
-      <p class="stars" aria-label="${e(n.rating)}/5">${Array.from({length:5},(o,i)=>`<span class="${i<n.rating?"on":""}">${m("star",16)}</span>`).join("")}</p>
-      <blockquote>${e(s(n.text))}</blockquote>
-      <figcaption>${e(n.name)}</figcaption>
-    </figure>`).join("")}</div>
+    <h2 id="rev-title" class="h2">${t(e.reviews.title)}</h2>
+    ${X(i,o,"reviews",s=>`<figure class="review">
+      <p class="stars" aria-label="${t(s.rating)}/5">${Array.from({length:5},(d,l)=>`<span class="${l<s.rating?"on":""}">${u("star",16)}</span>`).join("")}</p>
+      <blockquote>${t(n(s.text))}</blockquote>
+      <figcaption>${t(s.name)}${Y(s,o)}</figcaption>
+    </figure>`)}${r}
   </div>
-</section>`:""}function ge({site:t,t:a,L:s}){return t.faq?.length?`<section class="section section--soft" aria-labelledby="faq-title">
+</section>`}function Me({site:a,t:e,L:n}){return a.faq?.length?`<section class="section section--soft" aria-labelledby="faq-title">
   <div class="wrap faq">
-    <h2 id="faq-title" class="h2">${e(a.faq.title)}</h2>
-    <div>${t.faq.map((n,o)=>`<details${o===0?" open":""}><summary>${e(s(n.q))}</summary><p>${e(s(n.a))}</p></details>`).join("")}</div>
+    <h2 id="faq-title" class="h2">${t(e.faq.title)}</h2>
+    <div>${a.faq.map((o,r)=>`<details${r===0?" open":""}><summary>${t(n(o.q))}</summary><p>${t(n(o.a))}</p></details>`).join("")}</div>
   </div>
-</section>`:""}function ye(t,a){let s=new Map;for(let n of t){let o=[...n.days].sort().join(",");s.has(o)||s.set(o,{days:n.days,slots:[]}),s.get(o).slots.push(`${n.open} \u2013 ${n.close}`)}return[...s.values()].map(n=>({label:n.days.length===7?a.visit.everyDay??a.days.join(", "):U(n.days,a.days),slots:n.slots.join(", ")}))}function ve({site:t,t:a,L:s,channels:n}){let o=encodeURIComponent(t.contact.mapQuery??s(t.contact.address));return`<section class="section" id="visit" aria-labelledby="visit-title">
+</section>`:""}function Te(a,e){let n=new Map;for(let o of a){let r=[...o.days].sort().join(",");n.has(r)||n.set(r,{days:o.days,slots:[]}),n.get(r).slots.push(`${o.open} \u2013 ${o.close}`)}return[...n.values()].map(o=>({label:o.days.length===7?e.visit.everyDay??e.days.join(", "):U(o.days,e.days),slots:o.slots.join(", ")}))}function Ce({site:a,t:e,L:n,channels:o}){let r=encodeURIComponent(a.contact.mapQuery??n(a.contact.address));return`<section class="section" id="visit" aria-labelledby="visit-title">
   <div class="wrap visit">
     <div>
-      <h2 id="visit-title" class="h2">${e(a.visit.title)}</h2>
-      ${V(t,a)}
-      <h3 class="h4">${m("clock",18)} ${e(a.visit.hours)}</h3>
-      <table class="hours"><tbody>${ye(t.hours,a).map(i=>`<tr><th scope="row">${e(i.label)}</th><td>${e(i.slots)}</td></tr>`).join("")}</tbody></table>
-      <h3 class="h4">${m("pin",18)} ${e(a.visit.address)}</h3>
-      <p>${e(s(t.contact.address))}</p>
+      <h2 id="visit-title" class="h2">${t(e.visit.title)}</h2>
+      ${_(a,e)}
+      <h3 class="h4">${u("clock",18)} ${t(e.visit.hours)}</h3>
+      <table class="hours"><tbody>${Te(a.hours,e).map(i=>`<tr><th scope="row">${t(i.label)}</th><td>${t(i.slots)}</td></tr>`).join("")}</tbody></table>
+      <h3 class="h4">${u("pin",18)} ${t(e.visit.address)}</h3>
+      <p>${t(n(a.contact.address))}</p>
       <div class="actions">
-        <a class="btn btn--line" href="https://www.google.com/maps/dir/?api=1&amp;destination=${o}" target="_blank" rel="noopener">${e(a.visit.directions)} ${m("arrow",16)}</a>
-        ${n.map(i=>`<a class="btn btn--ghost" href="${e(O(i,t.contact))}" ${q(i)}>${m(i,18)} ${e(a.via[i])}</a>`).join("")}
+        <a class="btn btn--line" href="https://www.google.com/maps/dir/?api=1&amp;destination=${r}" target="_blank" rel="noopener">${t(e.visit.directions)} ${u("arrow",16)}</a>
+        ${o.map(i=>`<a class="btn btn--ghost" href="${t(M(i,a.contact))}" ${q(i)}>${u(i,18)} ${t(e.via[i])}</a>`).join("")}
       </div>
     </div>
-    <div class="map"><iframe title="${e(a.visit.address)}" src="https://www.google.com/maps?q=${o}&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <div class="map"><iframe title="${t(e.visit.address)}" src="https://www.google.com/maps?q=${r}&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
   </div>
-</section>`}function be(t,a){let{site:s,t:n,L:o,url:i,money:r,market:h,items:l,channels:p,catalog:u,name:$}=t,g=a.variants.map(c=>({size:o(c.size)||"",price:r(c.price)})),w=a.variants.reduce((c,v)=>v.price<c.price?v:c),f=[...l.filter(c=>c.id!==a.id&&c.category===a.category),...l.filter(c=>c.id!==a.id&&c.category!==a.category&&c.occasions.some(v=>a.occasions.includes(v)))].slice(0,8),y=u.categories.find(c=>c.id===a.category),M=i(`${h.id}/`),j=n.orderText.replace("{product}",o(a.name)).replace("{size}",o(w.size)||"").replace("{price}",r(w.price)).replace(/\{\w+\}/g,"\u2026");return`<div class="wrap crumbs"><a href="${M}">${e(n.nav.home)}</a>${m("chevron",14)}<a href="${M}?type=${e(a.category)}#shop">${e(o(y?.name))}</a>${m("chevron",14)}<span aria-current="page">${e(o(a.name))}</span></div>
-<section class="wrap pdp" data-product data-name="${e(o(a.name))}" data-sizes='${e(JSON.stringify(g))}' data-text="${e(n.orderText)}">
-  <figure class="pdp-img"><img src="${e(x(i,a.image))}" alt="${e(o(a.name))}" width="800" height="800" fetchpriority="high">${a.badge?`<span class="tag">${e(o(a.badge))}</span>`:""}</figure>
+</section>`}function Le(a,e){let{site:n,t:o,L:r,url:i,money:s,market:d,items:l,channels:p,catalog:g,name:m}=a,v=e.variants.map(c=>({size:r(c.size)||"",price:s(c.price)})),k=e.variants.reduce((c,b)=>b.price<c.price?b:c),f=[...l.filter(c=>c.id!==e.id&&c.category===e.category),...l.filter(c=>c.id!==e.id&&c.category!==e.category&&c.occasions.some(b=>e.occasions.includes(b)))].slice(0,8),y=g.categories.find(c=>c.id===e.category),x=i(`${d.id}/`),S=o.orderText.replace("{product}",r(e.name)).replace("{size}",r(k.size)||"").replace("{price}",s(k.price)).replace(/\{\w+\}/g,"\u2026");return`<div class="wrap crumbs"><a href="${x}">${t(o.nav.home)}</a>${u("chevron",14)}<a href="${x}?type=${t(e.category)}#shop">${t(r(y?.name))}</a>${u("chevron",14)}<span aria-current="page">${t(r(e.name))}</span></div>
+<section class="wrap pdp" data-product data-name="${t(r(e.name))}" data-sizes='${t(JSON.stringify(v))}' data-text="${t(o.orderText)}">
+  <figure class="pdp-img"><img src="${t(D(i,e.image))}" alt="${t(r(e.name))}" width="800" height="800" fetchpriority="high">${e.badge?`<span class="tag">${t(r(e.badge))}</span>`:""}</figure>
   <div class="pdp-info">
-    <p class="kicker">${e(o(y?.name))}</p>
-    <h1 class="pdp-title">${e(o(a.name))}</h1>
-    <p class="pdp-price"><strong data-v="price">${e(r(w.price))}</strong></p>
-    <p class="lead">${e(o(a.description))}</p>
-    ${a.variants.length>1?`<fieldset class="opts"><legend>${e(n.product.size)}</legend><div class="opt-row">
-      ${a.variants.map((c,v)=>`<label class="opt"><input type="radio" name="size" value="${v}"${c===w?" checked":""}><span><b>${e(o(c.size))}</b><small>${e(r(c.price))}</small></span></label>`).join("")}
+    <p class="kicker">${t(r(y?.name))}</p>
+    <h1 class="pdp-title">${t(r(e.name))}</h1>
+    <p class="pdp-price"><strong data-v="price">${t(s(k.price))}</strong></p>
+    <p class="lead">${t(r(e.description))}</p>
+    ${e.variants.length>1?`<fieldset class="opts"><legend>${t(o.product.size)}</legend><div class="opt-row">
+      ${e.variants.map((c,b)=>`<label class="opt"><input type="radio" name="size" value="${b}"${c===k?" checked":""}><span><b>${t(r(c.size))}</b><small>${t(s(c.price))}</small></span></label>`).join("")}
     </div></fieldset>`:""}
     <dl class="tags">
-      <div><dt>${e(n.product.occasions)}</dt><dd>${a.occasions.map(c=>`<a href="${M}?occ=${e(c)}#shop">${e($(u.occasions,c))}</a>`).join("")}</dd></div>
-      <div><dt>${e(n.product.flowers)}</dt><dd>${a.flowers.map(c=>`<span>${e($(u.flowers,c))}</span>`).join("")}</dd></div>
+      <div><dt>${t(o.product.occasions)}</dt><dd>${e.occasions.map(c=>`<a href="${x}?occ=${t(c)}#shop">${t(m(g.occasions,c))}</a>`).join("")}</dd></div>
+      <div><dt>${t(o.product.flowers)}</dt><dd>${e.flowers.map(c=>`<span>${t(m(g.flowers,c))}</span>`).join("")}</dd></div>
     </dl>
     <form class="order" id="order" data-compose>
-      <h2 class="h4">${m("truck",18)} ${e(n.product.delivery)}</h2>
+      <h2 class="h4">${u("truck",18)} ${t(o.product.delivery)}</h2>
       <div class="fields">
-        <label><span>${e(n.product.date)}</span><input type="date" name="date" required></label>
-        <label><span>${e(n.product.time)}</span><select name="time">${(n.product.times??[]).map(c=>`<option>${e(c)}</option>`).join("")}</select></label>
-        <label><span>${e(n.product.recipient)}</span><input name="recipient" autocomplete="off"></label>
-        <label><span>${e(n.product.phone)}</span><input name="phone" type="tel" autocomplete="off"></label>
-        <label class="wide"><span>${e(n.product.address)}</span><input name="address" autocomplete="off"></label>
-        <label class="wide"><span>${e(n.product.card)}</span><textarea name="card" rows="2" placeholder="${e(n.product.cardHint)}"></textarea></label>
+        <label><span>${t(o.product.date)}</span><input type="date" name="date" required></label>
+        <label><span>${t(o.product.time)}</span><select name="time">${(o.product.times??[]).map(c=>`<option>${t(c)}</option>`).join("")}</select></label>
+        <label><span>${t(o.product.recipient)}</span><input name="recipient" autocomplete="off"></label>
+        <label><span>${t(o.product.phone)}</span><input name="phone" type="tel" autocomplete="off"></label>
+        <label class="wide"><span>${t(o.product.address)}</span><input name="address" autocomplete="off"></label>
+        <label class="wide"><span>${t(o.product.card)}</span><textarea name="card" rows="2" placeholder="${t(o.product.cardHint)}"></textarea></label>
       </div>
-      <div class="buy">${p.map((c,v)=>`<button type="submit" class="btn ${v?"btn--line":"btn--primary"} btn--lg" data-channel="${e(c)}" data-href="${e(O(c,s.contact,j))}">${m(c,18)} ${e(c==="phone"?n.product.call:n.product.send.replace("{channel}",n.via[c]))}</button>`).join("")}</div>
-      <noscript><p>${p.map(c=>`<a href="${e(O(c,s.contact,j))}" ${q(c)}>${e(n.via[c])}</a>`).join(" \xB7 ")}</p></noscript>
+      <div class="buy">${p.map((c,b)=>`<button type="submit" class="btn ${b?"btn--line":"btn--primary"} btn--lg" data-channel="${t(c)}" data-href="${t(M(c,n.contact,S))}">${u(c,18)} ${t(c==="phone"?o.product.call:o.product.send.replace("{channel}",o.via[c]))}</button>`).join("")}</div>
+      <noscript><p>${p.map(c=>`<a href="${t(M(c,n.contact,S))}" ${q(c)}>${t(o.via[c])}</a>`).join(" \xB7 ")}</p></noscript>
       <p class="form-msg" role="status" hidden></p>
-      <p class="muted small">${m("check",16)} ${e(n.product.note)}</p>
-      <p class="muted small">${e(n.product.photo)}</p>
+      <p class="muted small">${u("check",16)} ${t(o.product.note)}</p>
+      <p class="muted small">${t(o.product.photo)}</p>
     </form>
+    ${Q(a.market.lang)}
   </div>
 </section>
 ${f.length?`<section class="section section--soft"><div class="wrap">
-  <h2 class="h3">${e(n.product.related)}</h2>
-  <ul class="grid grid--related">${f.map(c=>Q(t,c)).join("")}</ul>
-</div></section>`:""}`}function we({site:t,t:a,L:s,market:n}){let o=t.contact;return`<footer class="footer">
+  <h2 class="h3">${t(o.product.related)}</h2>
+  <ul class="grid grid--related">${f.map(c=>re(a,c)).join("")}</ul>
+</div></section>`:""}`}function Re({site:a,t:e,L:n,market:o}){let r=a.contact;return`<footer class="footer">
   <div class="wrap foot">
-    <div><p class="foot-name">${e(t.name)}</p><p class="muted">${e(s(t.tagline))}</p></div>
-    <div><p class="foot-h">${e(a.footer.contact)}</p><ul>
-      ${o.phone?`<li>${e(a.footer.hotline)}: <a href="tel:${k(o.phone)}">${e(o.phone)}</a></li>`:""}
-      ${o.email?`<li><a href="mailto:${e(o.email)}">${e(o.email)}</a></li>`:""}
-      <li>${e(s(o.address))}</li></ul></div>
-    ${t.social?`<div><p class="foot-h">${e(a.footer.follow)}</p><ul>${Object.entries(t.social).filter(([,i])=>i).map(([i,r])=>`<li><a href="${e(r)}" target="_blank" rel="noopener">${e(i==="tiktok"?"TikTok":i[0].toUpperCase()+i.slice(1))}</a></li>`).join("")}</ul></div>`:""}
+    <div><p class="foot-name">${t(a.name)}</p><p class="muted">${t(n(a.tagline))}</p></div>
+    <div><p class="foot-h">${t(e.footer.contact)}</p><ul>
+      ${r.phone?`<li>${t(e.footer.hotline)}: <a href="tel:${w(r.phone)}">${t(r.phone)}</a></li>`:""}
+      ${r.email?`<li><a href="mailto:${t(r.email)}">${t(r.email)}</a></li>`:""}
+      <li>${t(n(r.address))}</li></ul></div>
+    ${a.social?`<div><p class="foot-h">${t(e.footer.follow)}</p><ul>${Object.entries(a.social).filter(([,i])=>i).map(([i,s])=>`<li><a href="${t(s)}" target="_blank" rel="noopener">${t(i==="tiktok"?"TikTok":i[0].toUpperCase()+i.slice(1))}</a></li>`).join("")}</ul></div>`:""}
   </div>
-  <div class="wrap foot-bottom"><span>\xA9 ${new Date().getFullYear()} ${e(t.name)}</span>${E(t,a,n.lang)}</div>
-</footer>`}function Me({site:t,market:a,L:s,abs:n}){return{"@context":"https://schema.org","@type":"Florist",name:t.name,url:n(`${a.id}/`),image:n(z(t.heroImages?.[0]??"photos/flower-market.webp")),description:s(t.intro),telephone:t.contact.phone,email:t.contact.email,address:{"@type":"PostalAddress",streetAddress:s(t.contact.address)},currenciesAccepted:a.currency,openingHoursSpecification:T(t.hours)}}var ke=({site:t,L:a})=>({"@context":"https://schema.org","@type":"FAQPage",mainEntity:t.faq.map(s=>({"@type":"Question",name:a(s.q),acceptedAnswer:{"@type":"Answer",text:a(s.a)}}))});function xe({site:t,market:a,L:s,abs:n,productPath:o},i){return{"@context":"https://schema.org","@type":"Product",name:s(i.name),description:s(i.description),image:n(z(i.image)),url:n(o(i,a)),offers:i.variants.map(r=>({"@type":"Offer",name:[s(i.name),s(r.size)].filter(Boolean).join(" \u2013 "),price:r.price,priceCurrency:a.currency,availability:"https://schema.org/InStock",seller:{"@type":"Organization",name:t.name}}))}}function je({catalog:t,market:a,L:s,abs:n,productPath:o,t:i},r){let h=t.categories.find(l=>l.id===r.category);return{"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:i.nav.home,item:n(`${a.id}/`)},{"@type":"ListItem",position:2,name:s(h?.name),item:n(`${a.id}/?type=${r.category}`)},{"@type":"ListItem",position:3,name:s(r.name),item:n(o(r,a))}]}}export{Re as renderSite};
+  <div class="wrap foot-bottom${a.badge===!1?" is-solo":""}"><span>\xA9 ${new Date().getFullYear()} ${t(a.name)}</span>${ee(a,e,o.lang)}</div>
+</footer>`}function qe({site:a,market:e,L:n,abs:o}){return{"@context":"https://schema.org","@type":"Florist",name:a.name,url:o(`${e.id}/`),image:o(P(a.heroImages?.[0]??"photos/flower-market.webp")),description:n(a.intro),telephone:a.contact.phone,email:a.contact.email,address:{"@type":"PostalAddress",streetAddress:n(a.contact.address)},currenciesAccepted:e.currency,openingHoursSpecification:V(a.hours)}}var Ee=({site:a,L:e})=>({"@context":"https://schema.org","@type":"FAQPage",mainEntity:a.faq.map(n=>({"@type":"Question",name:e(n.q),acceptedAnswer:{"@type":"Answer",text:e(n.a)}}))});function Be({site:a,market:e,L:n,abs:o,productPath:r},i){return{"@context":"https://schema.org","@type":"Product",name:n(i.name),description:n(i.description),image:o(P(i.image)),url:o(r(i,e)),offers:i.variants.map(s=>({"@type":"Offer",name:[n(i.name),n(s.size)].filter(Boolean).join(" \u2013 "),price:s.price,priceCurrency:e.currency,availability:"https://schema.org/InStock",seller:{"@type":"Organization",name:a.name}}))}}function Fe({catalog:a,market:e,L:n,abs:o,productPath:r,t:i},s){let d=a.categories.find(l=>l.id===s.category);return{"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:i.nav.home,item:o(`${e.id}/`)},{"@type":"ListItem",position:2,name:n(d?.name),item:o(`${e.id}/?type=${s.category}`)},{"@type":"ListItem",position:3,name:n(s.name),item:o(r(s,e))}]}}export{Ye as renderSite};

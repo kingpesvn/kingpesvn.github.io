@@ -228,6 +228,10 @@ figure { margin: 0; }
 .foot-name { font: 600 26px/1.1 var(--head); margin-bottom: 6px; }
 .foot-h { font-weight: 700; margin-bottom: 10px; color: #F7B6CA; }
 .foot-bottom { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 40px; padding-top: 20px; border-top: 1px solid color-mix(in srgb, var(--bg) 18%, var(--ink)); font-size: 13px; color: color-mix(in srgb, var(--bg) 62%, var(--ink)); }
+/* Ẩn dòng "Tạo bằng Kingpes": © tên shop (và link chính sách) ra giữa */
+.foot-bottom.is-solo { justify-content: center; text-align: center; }
+/* Điện thoại: © tên shop, chính sách, Tạo bằng Kingpes xếp thành một cột canh trái (không để mục rớt dòng lệch) */
+@media (max-width: 640px) { .foot-bottom, .foot-bottom.is-solo { flex-direction: column; align-items: flex-start; justify-content: flex-start; text-align: left; gap: 8px; } }
 .made { color: inherit; text-decoration: none; }
 .made:hover { color: #F7B6CA; }
 

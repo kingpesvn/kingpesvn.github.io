@@ -204,6 +204,10 @@ figure { margin: 0; }
 .foot-name { font: 900 28px/1.1 var(--head); color: var(--accent); margin-bottom: 6px; }
 .foot-h { font-weight: 800; margin-bottom: 10px; color: var(--accent); }
 .foot-bottom { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 40px; padding-top: 20px; border-top: 1px solid color-mix(in srgb, var(--bg) 20%, var(--ink)); font-size: 13px; color: color-mix(in srgb, var(--bg) 65%, var(--ink)); }
+/* Ẩn dòng "Tạo bằng Kingpes": © tên shop (và link chính sách) ra giữa */
+.foot-bottom.is-solo { justify-content: center; text-align: center; }
+/* Điện thoại: © tên shop, chính sách, Tạo bằng Kingpes xếp thành một cột canh trái (không để mục rớt dòng lệch) */
+@media (max-width: 640px) { .foot-bottom, .foot-bottom.is-solo { flex-direction: column; align-items: flex-start; justify-content: flex-start; text-align: left; gap: 8px; } }
 .made { color: inherit; opacity: .85; text-decoration: none; }
 .made:hover { opacity: 1; color: var(--accent); }
 

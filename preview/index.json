@@ -16,7 +16,25 @@
       "ja": "スパ・美容"
     },
     "category": "beauty",
-    "pages": 4
+    "pages": 5
+  },
+  {
+    "id": "fashion/fs-261003-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "FS-261003-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-03",
+    "name": {
+      "vi": "Shop thời trang",
+      "en": "Fashion store",
+      "ja": "ファッションストア"
+    },
+    "category": "fashion",
+    "pages": 382
   },
   {
     "id": "food/fd-260927-01",
@@ -34,7 +52,7 @@
       "ja": "ベーカリー"
     },
     "category": "food",
-    "pages": 18
+    "pages": 19
   },
   {
     "id": "food/fd-260927-02",
@@ -52,7 +70,7 @@
       "ja": "カフェ"
     },
     "category": "food",
-    "pages": 3
+    "pages": 4
   },
   {
     "id": "food/fd-261002-01",
@@ -70,7 +88,7 @@
       "ja": "フォー専門店"
     },
     "category": "food",
-    "pages": 3
+    "pages": 4
   },
   {
     "id": "retail/rt-260927-01",
@@ -88,7 +106,7 @@
       "ja": "スマホ・タブレット店"
     },
     "category": "retail",
-    "pages": 23
+    "pages": 24
   },
   {
     "id": "retail/rt-261002-01",
@@ -106,7 +124,7 @@
       "ja": "フラワーショップ"
     },
     "category": "retail",
-    "pages": 217
+    "pages": 218
   },
   {
     "id": "retail/rt-261003-01",
@@ -124,6 +142,6 @@
       "ja": "自転車・電動バイクショップ"
     },
     "category": "retail",
-    "pages": 217
+    "pages": 218
   }
 ]

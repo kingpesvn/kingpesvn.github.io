@@ -148,6 +148,8 @@ p { margin: 0; }
 .quote figcaption { color: var(--muted); font-size: 14px; }
 .stars { display: flex; gap: 2px; color: var(--line); }
 .stars .on { color: var(--accent); fill: var(--accent); }
+.stars .on svg { fill: currentColor; }
+.stars span { display: inline-flex; }
 
 /* Đặt lịch */
 .booking { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: start; }
@@ -183,6 +185,10 @@ p { margin: 0; }
 .foot-name { font: 700 34px/1 var(--serif); margin-bottom: 8px; }
 .foot-h { font-weight: 700; margin-bottom: 10px; color: var(--accent); }
 .foot-bottom { margin-top: 40px; padding-top: 18px; border-top: 1px solid color-mix(in srgb, var(--bg) 18%, var(--ink)); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 14px; }
+/* Ẩn dòng "Tạo bằng Kingpes": © tên shop (và link chính sách) ra giữa */
+.foot-bottom.is-solo { justify-content: center; text-align: center; }
+/* Điện thoại: © tên shop, chính sách, Tạo bằng Kingpes xếp thành một cột canh trái (không để mục rớt dòng lệch) */
+@media (max-width: 640px) { .foot-bottom, .foot-bottom.is-solo { flex-direction: column; align-items: flex-start; justify-content: flex-start; text-align: left; gap: 8px; } }
 .made { opacity: .7; text-decoration: none; }
 .made:hover { opacity: 1; }
 

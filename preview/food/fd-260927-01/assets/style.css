@@ -138,6 +138,8 @@ p { margin: 0; }
 .review { margin: 0; background: var(--surface); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 12px; }
 .stars { display: flex; gap: 2px; color: var(--line); }
 .stars .on { color: #E8A317; fill: #E8A317; }
+.stars .on svg { fill: currentColor; }
+.stars span { display: inline-flex; }
 .review blockquote { margin: 0; font-size: 16px; }
 .review figcaption { font-weight: 700; }
 
@@ -170,6 +172,10 @@ p { margin: 0; }
 .foot-name { font: 800 26px/1.1 var(--display); margin-bottom: 8px; }
 .foot-h { font-weight: 700; margin-bottom: 10px; }
 .foot-bottom { margin-top: 36px; padding-top: 18px; border-top: 1px solid color-mix(in srgb, var(--bg) 20%, var(--ink)); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 14px; }
+/* Ẩn dòng "Tạo bằng Kingpes": © tên shop (và link chính sách) ra giữa */
+.foot-bottom.is-solo { justify-content: center; text-align: center; }
+/* Điện thoại: © tên shop, chính sách, Tạo bằng Kingpes xếp thành một cột canh trái (không để mục rớt dòng lệch) */
+@media (max-width: 640px) { .foot-bottom, .foot-bottom.is-solo { flex-direction: column; align-items: flex-start; justify-content: flex-start; text-align: left; gap: 8px; } }
 .made { opacity: .75; text-decoration: none; }
 .made:hover { opacity: 1; }
 

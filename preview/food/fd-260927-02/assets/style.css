@@ -178,12 +178,28 @@ p { margin: 0; }
 .foot-name { font: 700 26px/1.1 var(--head); text-transform: uppercase; margin-bottom: 6px; }
 .foot-h { font-weight: 700; margin-bottom: 10px; color: var(--accent); }
 .foot-bottom { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+/* Ẩn dòng "Tạo bằng Kingpes": © tên shop (và link chính sách) ra giữa */
+.foot-bottom.is-solo { justify-content: center; text-align: center; }
+/* Điện thoại: © tên shop, chính sách, Tạo bằng Kingpes xếp thành một cột canh trái (không để mục rớt dòng lệch) */
+@media (max-width: 640px) { .foot-bottom, .foot-bottom.is-solo { flex-direction: column; align-items: flex-start; justify-content: flex-start; text-align: left; gap: 8px; } }
 .made { color: var(--muted); opacity: .8; text-decoration: none; }
 .made:hover { opacity: 1; color: var(--accent); }
 
 /* Thanh gọi món cố định trên điện thoại */
 .dock { display: none; }
 
+
+/* Khách nói gì (băng trượt dùng chung: reviewsCarousel ở shared/ui.mjs) */
+.reviews { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.review { margin: 0; display: flex; flex-direction: column; gap: 12px; padding: 24px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line); }
+.review .stars { display: flex; gap: 2px; margin: 0; color: var(--line); }
+.review .stars span { display: inline-flex; }
+.review .stars .on { color: #E3A72F; }
+.review .stars .on svg { fill: currentColor; }
+.review blockquote { margin: 0; line-height: 1.55; }
+.review figcaption { margin-top: auto; font-weight: 700; display: flex; flex-direction: column; }
+.review figcaption small { font-weight: 500; color: var(--muted); font-size: 13px; }
+@media (max-width: 760px) { .reviews { grid-template-columns: 1fr; } }
 @media (max-width: 1000px) {
   .nav { display: none; }
   .mnav { display: block; }

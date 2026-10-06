@@ -7,3 +7,4 @@
 | `food.webp` | Restaurant Bar | Afta Putta Gunawan | CC0 | https://stocksnap.io/photo/restaurant-bar-THXU08ODDE |
 | `beauty.webp` | Flatlay Spa | Healthy Living | CC0 | https://stocksnap.io/photo/flatlay-spa-2HEUUNACGX |
 | `retail.webp` | Android Phone | Jens Mahnke | CC0 | https://stocksnap.io/photo/android-phone-QG7ACWH2TZ |
+| `fashion.webp` | Fashion Clothes | Hannah Morgan | CC0 | https://stocksnap.io/photo/fashion-clothes-ZN97ZIF3ZU |
