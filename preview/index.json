@@ -19,6 +19,42 @@
     "pages": 5
   },
   {
+    "id": "beauty/bt-261009-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "BT-261009-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-09",
+    "name": {
+      "vi": "Tiệm nail",
+      "en": "Nail salon",
+      "ja": "ネイルサロン"
+    },
+    "category": "beauty",
+    "pages": 4
+  },
+  {
+    "id": "events/ev-261009-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "EV-261009-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-09",
+    "name": {
+      "vi": "Thiệp cưới online",
+      "en": "Wedding website",
+      "ja": "ウェディング招待状サイト"
+    },
+    "category": "events",
+    "pages": 4
+  },
+  {
     "id": "fashion/fs-261003-01",
     "thumbs": [
       "us",
@@ -91,6 +127,42 @@
     "pages": 4
   },
   {
+    "id": "food/fd-261009-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "FD-261009-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-09",
+    "name": {
+      "vi": "Quán cơm văn phòng",
+      "en": "Rice eatery & office lunch",
+      "ja": "定食屋・ランチ配達"
+    },
+    "category": "food",
+    "pages": 4
+  },
+  {
+    "id": "health/hl-261009-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "HL-261009-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-09",
+    "name": {
+      "vi": "Phòng khám nha khoa",
+      "en": "Dental clinic",
+      "ja": "歯科クリニック"
+    },
+    "category": "health",
+    "pages": 4
+  },
+  {
     "id": "retail/rt-260927-01",
     "thumbs": [
       "us",
@@ -143,5 +215,23 @@
     },
     "category": "retail",
     "pages": 218
+  },
+  {
+    "id": "travel/tr-261009-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "TR-261009-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-09",
+    "name": {
+      "vi": "Homestay",
+      "en": "Homestay",
+      "ja": "ゲストハウス"
+    },
+    "category": "travel",
+    "pages": 4
   }
 ]
