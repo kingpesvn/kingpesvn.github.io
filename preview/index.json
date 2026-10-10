@@ -73,6 +73,23 @@
     "pages": 382
   },
   {
+    "id": "fitness/ft-261011-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "FT-261011-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-11",
+    "name": {
+      "vi": "Phòng gym & yoga",
+      "en": "Gym & yoga studio"
+    },
+    "category": "fitness",
+    "pages": 4
+  },
+  {
     "id": "food/fd-260927-01",
     "thumbs": [
       "us",

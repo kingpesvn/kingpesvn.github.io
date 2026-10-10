@@ -11,3 +11,4 @@
 | `events.webp` | [Flowers pews](https://www.rawpixel.com/image/6029609/flowers-pews-free-public-domain-cc0-image) | rawpixel | CC0 | https://www.rawpixel.com/image/6029609/flowers-pews-free-public-domain-cc0-image |
 | `travel.webp` | [A lush green rice field with dense grass-like plants, surrounded by patches of aquatic plants and distant trees visible on the horizon.](https://wordpress.org/photos/photo/2616720d25/) | Md Khorshed Alam | CC0 1.0 |
 | `health.webp` | [Chair Dentist](https://stocksnap.io/photo/chair-dentist-3J10QN5PTS) | Daniel Frank | CC0 1.0 |
+| `fitness.webp` | [Girl Woman](https://stocksnap.io/photo/girl-woman-MRTPJW5I7U) | Scott Webb | CC0 1.0 |
