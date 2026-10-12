@@ -1,5 +1,22 @@
 [
   {
+    "id": "auto/au-261011-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "AU-261011-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-11",
+    "name": {
+      "vi": "Garage sửa xe ô tô",
+      "en": "Auto repair shop"
+    },
+    "category": "auto",
+    "pages": 4
+  },
+  {
     "id": "beauty/bt-260927-01",
     "thumbs": [
       "kr",
