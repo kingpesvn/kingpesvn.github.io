@@ -54,6 +54,40 @@
     "pages": 4
   },
   {
+    "id": "beauty/bt-261013-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "BT-261013-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-13",
+    "name": {
+      "vi": "Salon tóc & barber",
+      "en": "Barber & hair salon"
+    },
+    "category": "beauty",
+    "pages": 4
+  },
+  {
+    "id": "education/ed-261013-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "ED-261013-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-13",
+    "name": {
+      "vi": "Trung tâm tiếng Anh",
+      "en": "English language school"
+    },
+    "category": "education",
+    "pages": 4
+  },
+  {
     "id": "events/ev-261009-01",
     "thumbs": [
       "us",
@@ -69,6 +103,23 @@
       "ja": "ウェディング招待状サイト"
     },
     "category": "events",
+    "pages": 4
+  },
+  {
+    "id": "farm/fm-261013-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "FM-261013-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-13",
+    "name": {
+      "vi": "Nông sản sạch",
+      "en": "Farm produce shop"
+    },
+    "category": "farm",
     "pages": 4
   },
   {
@@ -102,6 +153,67 @@
     "name": {
       "vi": "Phòng gym & yoga",
       "en": "Gym & yoga studio"
+    },
+    "category": "fitness",
+    "pages": 4
+  },
+  {
+    "id": "fitness/ft-261016-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "FT-261016-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-16",
+    "name": {
+      "vi": "Sân bóng đá mini",
+      "en": "Five-a-side pitch"
+    },
+    "category": "fitness",
+    "pages": 4
+  },
+  {
+    "id": "fitness/ft-261016-02",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "FT-261016-02-v1.0",
+    "version": "1.0",
+    "released": "2026-10-16",
+    "name": {
+      "vi": "Sân cầu lông",
+      "en": "Badminton courts"
+    },
+    "category": "fitness",
+    "pages": 4
+  },
+  {
+    "id": "fitness/ft-261016-03",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "FT-261016-03-v1.0",
+    "version": "1.0",
+    "released": "2026-10-16",
+    "name": {
+      "vi": "CLB tennis & pickleball",
+      "en": "Tennis & pickleball club",
+      "ja": "テニス＆ピックルボールクラブ",
+      "ko": "테니스·피클볼 클럽",
+      "zh": "网球与匹克球俱乐部",
+      "th": "คลับเทนนิสและพิกเคิลบอล",
+      "id": "Klub tenis & pickleball",
+      "es": "Club de tenis y pickleball",
+      "fr": "Club de tennis et pickleball",
+      "de": "Tennis- & Pickleball-Club",
+      "pt": "Clube de tênis e pickleball",
+      "ru": "Клуб тенниса и пиклбола"
     },
     "category": "fitness",
     "pages": 4
@@ -179,6 +291,23 @@
     "pages": 4
   },
   {
+    "id": "food/fd-261014-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "FD-261014-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-14",
+    "name": {
+      "vi": "Quán trà sữa",
+      "en": "Bubble tea shop"
+    },
+    "category": "food",
+    "pages": 4
+  },
+  {
     "id": "health/hl-261009-01",
     "thumbs": [
       "us",
@@ -194,6 +323,74 @@
       "ja": "歯科クリニック"
     },
     "category": "health",
+    "pages": 4
+  },
+  {
+    "id": "interior/in-261016-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "IN-261016-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-16",
+    "name": {
+      "vi": "Nội thất gỗ",
+      "en": "Wood interior"
+    },
+    "category": "interior",
+    "pages": 4
+  },
+  {
+    "id": "pets/pt-261013-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "PT-261013-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-13",
+    "name": {
+      "vi": "Spa thú cưng",
+      "en": "Pet grooming & spa"
+    },
+    "category": "pets",
+    "pages": 4
+  },
+  {
+    "id": "photo/ph-261014-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "PH-261014-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-14",
+    "name": {
+      "vi": "Studio ảnh",
+      "en": "Photo studio"
+    },
+    "category": "photo",
+    "pages": 4
+  },
+  {
+    "id": "portfolio/pf-261016-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "PF-261016-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-16",
+    "name": {
+      "vi": "Portfolio & CV tối giản",
+      "en": "Minimal portfolio & CV"
+    },
+    "category": "portfolio",
     "pages": 4
   },
   {
@@ -264,6 +461,33 @@
       "vi": "Homestay",
       "en": "Homestay",
       "ja": "ゲストハウス"
+    },
+    "category": "travel",
+    "pages": 4
+  },
+  {
+    "id": "travel/tr-261016-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "TR-261016-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-16",
+    "name": {
+      "vi": "Khách sạn mini",
+      "en": "Boutique hotel",
+      "ja": "ビジネスホテル",
+      "ko": "부티크 호텔",
+      "zh": "精品酒店",
+      "th": "โรงแรมบูทีค",
+      "id": "Hotel butik",
+      "es": "Hotel boutique",
+      "fr": "Hôtel de charme",
+      "de": "Boutique-Hotel",
+      "pt": "Hotel boutique",
+      "ru": "Мини-отель"
     },
     "category": "travel",
     "pages": 4

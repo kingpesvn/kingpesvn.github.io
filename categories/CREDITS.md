@@ -13,3 +13,9 @@
 | `health.webp` | [Chair Dentist](https://stocksnap.io/photo/chair-dentist-3J10QN5PTS) | Daniel Frank | CC0 1.0 |
 | `fitness.webp` | [Girl Woman](https://stocksnap.io/photo/girl-woman-MRTPJW5I7U) | Scott Webb | CC0 1.0 |
 | `auto.webp` | [Car engine close photo](https://www.rawpixel.com/image/6071815/free-public-domain-cc0-photo) | — | CC0 1.0 |
+| `education.webp` | [School Books](https://stocksnap.io/photo/school-books-S059QDGBOG) | Krzysztof Puszczyński | CC0 1.0 |
+| `pets.webp` | [Untitled](https://www.rawpixel.com/image/5960450/free-public-domain-cc0-photo) | — | CC0 1.0 |
+| `farm.webp` | [Fruit Vegetables](https://stocksnap.io/photo/fruit-vegetables-F8B73CPSBK) | Jamie Hamel-Smith | CC0 1.0 |
+| `photo.webp` | [Analog film camera roll film](https://www.rawpixel.com/image/503221/free-photo-image-camera-retro-film-blue-flat-lay) | Markus Spiske | CC0 1.0 |
+| `interior.webp` | [Free living room interior design](https://www.rawpixel.com/image/5917348/image-frame-light-public-domain) | — | CC0 1.0 |
+| `portfolio.webp` | [Desk Office](https://stocksnap.io/photo/desk-office-QUR0CQODB2) | Liam McKay | CC0 1.0 |
