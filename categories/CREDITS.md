@@ -19,3 +19,7 @@
 | `photo.webp` | [Analog film camera roll film](https://www.rawpixel.com/image/503221/free-photo-image-camera-retro-film-blue-flat-lay) | Markus Spiske | CC0 1.0 |
 | `interior.webp` | [Free living room interior design](https://www.rawpixel.com/image/5917348/image-frame-light-public-domain) | — | CC0 1.0 |
 | `portfolio.webp` | [Desk Office](https://stocksnap.io/photo/desk-office-QUR0CQODB2) | Liam McKay | CC0 1.0 |
+| `realty.webp` | [Beijing Apartment Balcony (10563478236)](https://commons.wikimedia.org/wiki/File:Beijing_Apartment_Balcony_(10563478236).jpg) | Gary Todd from Xinzheng, China | CC0 1.0 |
+| `arts.webp` | [Mirrored Disco Ball with Light and Motor](https://commons.wikimedia.org/wiki/File:Mirrored_Disco_Ball_with_Light_and_Motor.jpg) | Catboy69 | CC0 1.0 |
+| `tech.webp` | [Minimalist meeting room (Unsplash)](https://commons.wikimedia.org/wiki/File:Minimalist_meeting_room_(Unsplash).jpg) | Breather breather | CC0 1.0 |
+| `legal.webp` | [Free library shelves many books](https://www.rawpixel.com/image/5904761/photo-image-book-public-domain-wood) | — | CC0 1.0 |

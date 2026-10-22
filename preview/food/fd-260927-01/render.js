@@ -1,11 +1,11 @@
-var ne={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"},t=(a="")=>String(a).replace(/[&<>"']/g,e=>ne[e]);function P(a,e,n="vi"){return a==null?"":typeof a!="object"?String(a):a[e]??a[n]??Object.values(a)[0]??""}var oe={vi:"vi-VN",en:"en-US",ja:"ja-JP",th:"th-TH",ko:"ko-KR",fr:"fr-FR",zh:"zh-CN",id:"id-ID",es:"es-ES",de:"de-DE",pt:"pt-BR",ru:"ru-RU",it:"it-IT",ms:"ms-MY",nl:"nl-NL"},T=a=>oe[a]??"en-US";function re(a,e="1"){if(e==="0.99")return Math.max(.99,Math.ceil(a)-.01);let n=Number(e)||1;return Math.max(n,Math.round(a/n)*n)}function se(a,e){if(e.default)return a.basePrice;let n=a.prices?.[e.id]??{mode:"auto"};return n.mode==="hidden"?null:n.mode==="manual"?n.amount:re(a.basePrice*e.rate,e.rounding)}var ie=new Set(["VND","JPY","KRW","IDR","KHR","LAK"]);function O(a,e){let n={style:"currency",currency:e.currency};return ie.has(e.currency)&&(n.maximumFractionDigits=0),new Intl.NumberFormat(T(e.lang),n).format(a)}function L(a,e){return a.products.map(n=>({...n,price:se(n,e)})).filter(n=>n.price!=null)}function F(a="/"){let e=a.endsWith("/")?a:`${a}/`;return(n="")=>e+String(n).replace(/^\//,"")}var N=(a="")=>a.startsWith("uploads/")?a:/^([a-z]+:|\/)/i.test(a)?null:`assets/${a}`,S=(a,e)=>{let n=N(e);return n==null?e:a(n)},D=(a="")=>String(a).replace(/\D/g,"");function k(a,e,n=""){switch(a){case"phone":return`tel:${D(e.phone)}`;case"zalo":return`https://zalo.me/${D(e.zalo||e.phone)}`;case"messenger":return`https://m.me/${encodeURIComponent(e.messenger)}`;case"whatsapp":return`https://wa.me/${D(e.whatsapp)}${n?`?text=${encodeURIComponent(n)}`:""}`;case"kakao":return`https://pf.kakao.com/${encodeURIComponent(e.kakao)}/chat`;case"email":return`mailto:${e.email}${n?`?subject=${encodeURIComponent(n)}`:""}`;default:return"#"}}var R=a=>`<script type="application/ld+json">${JSON.stringify(a).replace(/</g,"\\u003c")}<\/script>`;var ce={zalo:'<path d="M4 5h16v11H9l-5 4z"/>',phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',whatsapp:'<path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1-1.2 1.8.8"/>',messenger:'<path d="M12 3C7 3 3 6.7 3 11.3c0 2.6 1.3 4.9 3.3 6.4V21l3-1.7c.9.3 1.8.4 2.7.4 5 0 9-3.7 9-8.4S17 3 12 3z"/><path d="M7.5 13.5l3-3 2.5 2 3.5-3"/>',kakao:'<path d="M12 4C6.5 4 3 7.3 3 11c0 2.4 1.6 4.5 4 5.7L6.5 20l3.6-2.4c.6.1 1.2.1 1.9.1 5.5 0 9-3.3 9-7s-3.5-6.7-9-6.7z"/>',email:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',pin:'<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>',menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',leaf:'<path d="M5 19c0-8 5-14 15-15-1 10-7 15-15 15z"/><path d="M5 19l8-8"/>',drop:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>',hand:'<path d="M8 13V6a1.5 1.5 0 0 1 3 0v5M11 11V4.5a1.5 1.5 0 0 1 3 0V11M14 11V6a1.5 1.5 0 0 1 3 0v7c0 4-2.5 7-6 7s-5-2-6.5-4.5L3 12.5a1.5 1.5 0 0 1 2.5-1.6L8 14"/>',calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',bowl:'<path d="M3 11h18a9 9 0 0 1-18 0z"/><path d="M9 20h6M14 3l-3 7M18 4l-4.5 6"/>',cup:'<path d="M4 8h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 2.5c-.6 1 .6 2 0 3M12 2.5c-.6 1 .6 2 0 3"/>',bag:'<path d="M6 7h12l1 14H5z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/>',shield:'<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',refresh:'<path d="M20 11a8 8 0 0 0-14.3-4.9L4 8M4 4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16M20 20v-4h-4"/>',card:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/>',truck:'<path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',chevron:'<path d="M9 6l6 6-6 6"/>',bike:'<circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l4-8h5l3 8M10 9 8 5H5M15 9l1-3h3"/>',bolt:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',wrench:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/>',gauge:'<path d="M4 18a9 9 0 1 1 16 0"/><path d="M12 13l4-5"/><circle cx="12" cy="14" r="1.5"/>',wifi:'<path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/>',bed:'<path d="M3 18V7M3 13h18v5M21 13a3 3 0 0 0-3-3h-7v3"/><circle cx="7" cy="10.5" r="1.5"/>',users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6"/>',wave:'<path d="M2 15c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2M2 19c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2M8 13V5a2 2 0 0 1 4 0M16 13V5a2 2 0 0 0-4 0"/>',car:'<path d="M5 16V11l2-5h10l2 5v5M3 16h18v3H3zM5 11h14"/><circle cx="7.5" cy="16" r="1"/><circle cx="16.5" cy="16" r="1"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',ruler:'<path d="M3 17 17 3l4 4L7 21zM7 13l2 2M10 10l2 2M13 7l2 2"/>',heart:'<path d="M12 20s-7-4.4-9-9a4.8 4.8 0 0 1 9-3 4.8 4.8 0 0 1 9 3c-2 4.6-9 9-9 9z"/>',book:'<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5M8 7h8"/>',chat:'<path d="M4 5h16v11h-9l-5 4v-4H4z"/><path d="M8 9.5h8M8 12.5h5"/>',cap:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c2 2 10 2 12 0v-5M22 9v6"/>',paw:'<circle cx="6" cy="10" r="2"/><circle cx="10" cy="6" r="2"/><circle cx="14" cy="6" r="2"/><circle cx="18" cy="10" r="2"/><path d="M12 12c-3 0-6 4-6 6.5S8 21 12 19.5 18 21 18 18.5 15 12 12 12z"/>',scissors:'<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 7.5 20 18M8.5 16.5 20 6"/>',camera:'<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',plus:'<path d="M12 5v14M5 12h14"/>',minus:'<path d="M5 12h14"/>',dumbbell:'<path d="M6.5 6.5v11M17.5 6.5v11M3 9.5v5M21 9.5v5M6.5 12h11"/>',lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',flame:'<path d="M12 22c4 0 7-2.7 7-6.7 0-3.6-2.6-6-4.4-8.3-.6 1.9-1.6 3-3.1 3.6C12.6 7.4 11.6 4.3 9 2c0 4-5 6.5-5 13.3C4 19.3 8 22 12 22z"/>',drop2:'<path d="M12 3s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11z"/>',share:'<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/>',link:'<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',facebook:'<path d="M15.5 3H14a4 4 0 0 0-4 4v14M6.5 10.5h8"/>'},m=(a,e=20,n="")=>`<svg class="i" width="${e}" height="${e}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ${n}>${ce[a]??""}</svg>`,z=[1,2,3,4,5,6,0],le=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];function V(a,e){let n=a.map(s=>z.indexOf(s)).sort((s,c)=>s-c);return n.every((s,c)=>c===0||s===n[c-1]+1)&&n.length>2?`${e[z[n[0]]]} \u2013 ${e[z[n.at(-1)]]}`:n.map(s=>e[z[s]]).join(", ")}var I=a=>a.map(e=>({"@type":"OpeningHoursSpecification",dayOfWeek:e.days.map(n=>le[n]),opens:e.open,closes:e.close}));function U(a){return new Intl.NumberFormat(T(a.lang),{style:"currency",currency:a.currency}).formatToParts(0).find(n=>n.type==="currency")?.value??a.currency}var x=a=>a==="phone"||a==="email"?"":'target="_blank" rel="noopener"',H=a=>`<div class="suggest" id="market-suggest" data-suggest="${t(a.market.suggest)}" hidden>
+var de={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"},a=(n="")=>String(n).replace(/[&<>"']/g,e=>de[e]);function j(n,e,t="vi"){var o,r,c;return n==null?"":typeof n!="object"?String(n):(c=(r=(o=n[e])!=null?o:n[t])!=null?r:Object.values(n)[0])!=null?c:""}var he={vi:"vi-VN",en:"en-US",ja:"ja-JP",th:"th-TH",ko:"ko-KR",fr:"fr-FR",zh:"zh-CN",id:"id-ID",es:"es-ES",de:"de-DE",pt:"pt-BR",ru:"ru-RU",it:"it-IT",ms:"ms-MY",nl:"nl-NL"},B=n=>{var e;return(e=he[n])!=null?e:"en-US"};function ue(n,e="1"){if(e==="0.99")return Math.max(.99,Math.ceil(n)-.01);let t=Number(e)||1;return Math.max(t,Math.round(n/t)*t)}function me(n,e){var o,r;if(e.default)return n.basePrice;let t=(r=(o=n.prices)==null?void 0:o[e.id])!=null?r:{mode:"auto"};return t.mode==="hidden"?null:t.mode==="manual"?t.amount:ue(n.basePrice*e.rate,e.rounding)}var ge=new Set(["VND","JPY","KRW","IDR","KHR","LAK"]);function J(n,e){let t={style:"currency",currency:e.currency};return ge.has(e.currency)&&(t.maximumFractionDigits=0),new Intl.NumberFormat(B(e.lang),t).format(n)}function q(n,e){return n.products.map(t=>({...t,price:me(t,e)})).filter(t=>t.price!=null)}function Z(n="/"){let e=n.endsWith("/")?n:`${n}/`;return(t="")=>e+String(t).replace(/^\//,"")}var C=(n="")=>n.startsWith("uploads/")?n:/^([a-z]+:|\/)/i.test(n)?null:`assets/${n}`,P=(n,e)=>{let t=C(e);return t==null?e:n(t)},S=(n="")=>String(n).replace(/\D/g,"");function x(n,e,t=""){switch(n){case"phone":return`tel:${S(e.phone)}`;case"zalo":return`https://zalo.me/${S(e.zalo||e.phone)}`;case"messenger":return`https://m.me/${encodeURIComponent(e.messenger)}`;case"whatsapp":return`https://wa.me/${S(e.whatsapp)}${t?`?text=${encodeURIComponent(t)}`:""}`;case"kakao":return`https://pf.kakao.com/${encodeURIComponent(e.kakao)}/chat`;case"email":return`mailto:${e.email}${t?`?subject=${encodeURIComponent(t)}`:""}`;default:return"#"}}var O=n=>`<script type="application/ld+json">${JSON.stringify(n).replace(/</g,"\\u003c")}<\/script>`;var fe={zalo:'<path d="M4 5h16v11H9l-5 4z"/>',phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',whatsapp:'<path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1-1.2 1.8.8"/>',messenger:'<path d="M12 3C7 3 3 6.7 3 11.3c0 2.6 1.3 4.9 3.3 6.4V21l3-1.7c.9.3 1.8.4 2.7.4 5 0 9-3.7 9-8.4S17 3 12 3z"/><path d="M7.5 13.5l3-3 2.5 2 3.5-3"/>',kakao:'<path d="M12 4C6.5 4 3 7.3 3 11c0 2.4 1.6 4.5 4 5.7L6.5 20l3.6-2.4c.6.1 1.2.1 1.9.1 5.5 0 9-3.3 9-7s-3.5-6.7-9-6.7z"/>',email:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',pin:'<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>',menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',leaf:'<path d="M5 19c0-8 5-14 15-15-1 10-7 15-15 15z"/><path d="M5 19l8-8"/>',drop:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>',hand:'<path d="M8 13V6a1.5 1.5 0 0 1 3 0v5M11 11V4.5a1.5 1.5 0 0 1 3 0V11M14 11V6a1.5 1.5 0 0 1 3 0v7c0 4-2.5 7-6 7s-5-2-6.5-4.5L3 12.5a1.5 1.5 0 0 1 2.5-1.6L8 14"/>',calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',bowl:'<path d="M3 11h18a9 9 0 0 1-18 0z"/><path d="M9 20h6M14 3l-3 7M18 4l-4.5 6"/>',cup:'<path d="M4 8h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 2.5c-.6 1 .6 2 0 3M12 2.5c-.6 1 .6 2 0 3"/>',bag:'<path d="M6 7h12l1 14H5z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/>',shield:'<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',refresh:'<path d="M20 11a8 8 0 0 0-14.3-4.9L4 8M4 4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16M20 20v-4h-4"/>',card:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/>',truck:'<path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',chevron:'<path d="M9 6l6 6-6 6"/>',bike:'<circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l4-8h5l3 8M10 9 8 5H5M15 9l1-3h3"/>',bolt:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',wrench:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/>',gauge:'<path d="M4 18a9 9 0 1 1 16 0"/><path d="M12 13l4-5"/><circle cx="12" cy="14" r="1.5"/>',wifi:'<path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/>',bed:'<path d="M3 18V7M3 13h18v5M21 13a3 3 0 0 0-3-3h-7v3"/><circle cx="7" cy="10.5" r="1.5"/>',users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6"/>',wave:'<path d="M2 15c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2M2 19c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2M8 13V5a2 2 0 0 1 4 0M16 13V5a2 2 0 0 0-4 0"/>',car:'<path d="M5 16V11l2-5h10l2 5v5M3 16h18v3H3zM5 11h14"/><circle cx="7.5" cy="16" r="1"/><circle cx="16.5" cy="16" r="1"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',ruler:'<path d="M3 17 17 3l4 4L7 21zM7 13l2 2M10 10l2 2M13 7l2 2"/>',heart:'<path d="M12 20s-7-4.4-9-9a4.8 4.8 0 0 1 9-3 4.8 4.8 0 0 1 9 3c-2 4.6-9 9-9 9z"/>',book:'<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5M8 7h8"/>',chat:'<path d="M4 5h16v11h-9l-5 4v-4H4z"/><path d="M8 9.5h8M8 12.5h5"/>',cap:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c2 2 10 2 12 0v-5M22 9v6"/>',paw:'<circle cx="6" cy="10" r="2"/><circle cx="10" cy="6" r="2"/><circle cx="14" cy="6" r="2"/><circle cx="18" cy="10" r="2"/><path d="M12 12c-3 0-6 4-6 6.5S8 21 12 19.5 18 21 18 18.5 15 12 12 12z"/>',scissors:'<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 7.5 20 18M8.5 16.5 20 6"/>',camera:'<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',plus:'<path d="M12 5v14M5 12h14"/>',minus:'<path d="M5 12h14"/>',dumbbell:'<path d="M6.5 6.5v11M17.5 6.5v11M3 9.5v5M21 9.5v5M6.5 12h11"/>',key:'<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M14 9l2 2"/>',route:'<circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h8.5a3.5 3.5 0 0 0 0-7h-9a3.5 3.5 0 0 1 0-7H16"/>',fuel:'<path d="M4 21V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v16M3 21h13M4 10h11M15 8l3 2v8a1.5 1.5 0 0 0 3 0V9l-3-3"/>',gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/>',moto:'<circle cx="5.5" cy="17" r="3"/><circle cx="18.5" cy="17" r="3"/><path d="M8.5 17h6l3-6h-4l-2-4H9M14.5 11l-3 6M5.5 17l3-6h3"/>',doc:'<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>',lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',flame:'<path d="M12 22c4 0 7-2.7 7-6.7 0-3.6-2.6-6-4.4-8.3-.6 1.9-1.6 3-3.1 3.6C12.6 7.4 11.6 4.3 9 2c0 4-5 6.5-5 13.3C4 19.3 8 22 12 22z"/>',drop2:'<path d="M12 3s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11z"/>',share:'<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/>',link:'<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',syringe:'<path d="M18 2l4 4M20 4l-4 4M15 5l4 4M17 7 8.5 15.5l-3 .5.5-3L14.5 4.5M6 18l-4 4M10 10l2 2M8 12l2 2"/>',steth:'<path d="M5 3H4v6a5 5 0 0 0 10 0V3h-1M9 14v1a5 5 0 0 0 10 0v-3"/><circle cx="19" cy="10" r="2"/>',cross:'<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>',chef:'<path d="M7 17h10v4H7zM7 17v-4a4 4 0 0 1-.5-7.8A5 5 0 0 1 12 3a5 5 0 0 1 5.5 2.2A4 4 0 0 1 17 13v4"/>',pot:'<path d="M4 10h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4zM2 10h20M9 7c0-1.2 1-1.3 1-2.5M14 7c0-1.2 1-1.3 1-2.5"/>',scale:'<path d="M12 3v18M7 21h10M5 7h14M12 5l-7 2M12 5l7 2"/><path d="M2 15l3-8 3 8a3 3 0 0 1-6 0zM16 15l3-8 3 8a3 3 0 0 1-6 0z"/>',briefcase:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',house:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10M10 20v-6h4v6"/>',facebook:'<path d="M15.5 3H14a4 4 0 0 0-4 4v14M6.5 10.5h8"/>'},f=(n,e=20,t="")=>{var o;return`<svg class="i" width="${e}" height="${e}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ${t}>${(o=fe[n])!=null?o:""}</svg>`},T=[1,2,3,4,5,6,0],ve=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];function Q(n,e){let t=n.map(r=>T.indexOf(r)).sort((r,c)=>r-c);return t.every((r,c)=>c===0||r===t[c-1]+1)&&t.length>2?`${e[T[t[0]]]} \u2013 ${e[T[t.at(-1)]]}`:t.map(r=>e[T[r]]).join(", ")}var ee=n=>n.map(e=>({"@type":"OpeningHoursSpecification",dayOfWeek:e.days.map(t=>ve[t]),opens:e.open,closes:e.close}));function te(n){var t,o;return(o=(t=new Intl.NumberFormat(B(n.lang),{style:"currency",currency:n.currency}).formatToParts(0).find(r=>r.type==="currency"))==null?void 0:t.value)!=null?o:n.currency}var w=n=>n==="phone"||n==="email"?"":'target="_blank" rel="noopener"',ae=n=>`<div class="suggest" id="market-suggest" data-suggest="${a(n.market.suggest)}" hidden>
   <span data-text></span>
-  <a class="btn btn--small" data-go href="#">${t(a.market.switch)}</a>
-  <button type="button" class="suggest-x" data-close aria-label="${t(a.market.dismiss)}">\xD7</button>
-</div>`,W=(a,e)=>`<p class="status" data-open-status data-hours='${t(JSON.stringify(a.hours))}' data-tz="${t(a.timezone??"Asia/Ho_Chi_Minh")}" data-open="${t(e.visit.open)}" data-closed="${t(e.visit.closed)}" hidden></p>`,A={vi:"\u0110\xE1nh gi\xE1 ch\xFAng t\xF4i tr\xEAn Google",en:"Review us on Google",ja:"Google\u3067\u30EC\u30D3\u30E5\u30FC\u3092\u66F8\u304F",ko:"Google\uC5D0 \uD6C4\uAE30 \uB0A8\uAE30\uAE30",zh:"\u5728 Google \u4E0A\u8BC4\u4EF7\u6211\u4EEC",th:"\u0E23\u0E35\u0E27\u0E34\u0E27\u0E40\u0E23\u0E32\u0E1A\u0E19 Google",id:"Beri ulasan di Google",es:"Opina sobre nosotros en Google",fr:"Donnez votre avis sur Google",de:"Bewerten Sie uns bei Google",pt:"Avalie-nos no Google",ru:"\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u043E\u0442\u0437\u044B\u0432 \u0432 Google"},pe=/^(?:g\.page|g\.co|goo\.gl|maps\.app\.goo\.gl|(?:[a-z0-9-]+\.)*google\.[a-z.]{2,6})$/i,de=a=>{try{let e=new URL(String(a.googleReview??"").trim());return e.protocol==="https:"&&pe.test(e.hostname)?e.href:""}catch{return""}},E=(a,e,n,r="btn btn--line")=>{let s=de(a);if(!s)return"";let c=typeof e.reviews=="object"&&e.reviews?.google||A[n]||A.en;return`<p class="g-review" style="margin:28px 0 0;text-align:center"><a class="${r}" href="${t(s)}" target="_blank" rel="noopener">${m("star",16)} ${t(c)}</a></p>`},j={vi:{count:"{n} \u0111\xE1nh gi\xE1",prev:"\u0110\xE1nh gi\xE1 tr\u01B0\u1EDBc",next:"\u0110\xE1nh gi\xE1 ti\u1EBFp",more:"Xem th\xEAm",less:"Thu g\u1ECDn"},en:{count:"{n} reviews",prev:"Previous reviews",next:"More reviews",more:"Read more",less:"Show less"},ja:{count:"\u30EC\u30D3\u30E5\u30FC{n}\u4EF6",prev:"\u524D\u306E\u30EC\u30D3\u30E5\u30FC",next:"\u6B21\u306E\u30EC\u30D3\u30E5\u30FC",more:"\u7D9A\u304D\u3092\u8AAD\u3080",less:"\u9589\u3058\u308B"},ko:{count:"\uD6C4\uAE30 {n}\uAC1C",prev:"\uC774\uC804 \uD6C4\uAE30",next:"\uB2E4\uC74C \uD6C4\uAE30",more:"\uB354 \uBCF4\uAE30",less:"\uC811\uAE30"},zh:{count:"{n} \u6761\u8BC4\u4EF7",prev:"\u4E0A\u4E00\u7EC4\u8BC4\u4EF7",next:"\u66F4\u591A\u8BC4\u4EF7",more:"\u5C55\u5F00",less:"\u6536\u8D77"},th:{count:"{n} \u0E23\u0E35\u0E27\u0E34\u0E27",prev:"\u0E23\u0E35\u0E27\u0E34\u0E27\u0E01\u0E48\u0E2D\u0E19\u0E2B\u0E19\u0E49\u0E32",next:"\u0E23\u0E35\u0E27\u0E34\u0E27\u0E16\u0E31\u0E14\u0E44\u0E1B",more:"\u0E2D\u0E48\u0E32\u0E19\u0E15\u0E48\u0E2D",less:"\u0E22\u0E48\u0E2D"},id:{count:"{n} ulasan",prev:"Ulasan sebelumnya",next:"Ulasan berikutnya",more:"Selengkapnya",less:"Tutup"},es:{count:"{n} opiniones",prev:"Opiniones anteriores",next:"M\xE1s opiniones",more:"Leer m\xE1s",less:"Ver menos"},fr:{count:"{n} avis",prev:"Avis pr\xE9c\xE9dents",next:"Plus d\u2019avis",more:"Lire la suite",less:"R\xE9duire"},de:{count:"{n} Bewertungen",prev:"Vorherige Bewertungen",next:"Weitere Bewertungen",more:"Weiterlesen",less:"Weniger"},pt:{count:"{n} avalia\xE7\xF5es",prev:"Avalia\xE7\xF5es anteriores",next:"Mais avalia\xE7\xF5es",more:"Ler mais",less:"Mostrar menos"},ru:{count:"\u041E\u0442\u0437\u044B\u0432\u043E\u0432: {n}",prev:"\u041F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0438\u0435 \u043E\u0442\u0437\u044B\u0432\u044B",next:"\u0415\u0449\u0451 \u043E\u0442\u0437\u044B\u0432\u044B",more:"\u0427\u0438\u0442\u0430\u0442\u044C \u0434\u0430\u043B\u044C\u0448\u0435",less:"\u0421\u0432\u0435\u0440\u043D\u0443\u0442\u044C"}},_={vi:"vi-VN",en:"en-US",ja:"ja-JP",ko:"ko-KR",zh:"zh-CN",th:"th-TH",id:"id-ID",es:"es-ES",fr:"fr-FR",de:"de-DE",pt:"pt-BR",ru:"ru-RU"},B=a=>(a.reviews??[]).filter(e=>e&&(e.name||e.text)&&!(typeof e.text=="object"&&e.text&&!Object.values(e.text).some(Boolean)&&!e.name));function K(a,e){let n=/^(\d{4})-(\d{2})(?:-(\d{2}))?$/.exec(String(a?.date??"").trim());if(!n)return"";let r=new Date(Date.UTC(+n[1],+n[2]-1,+(n[3]??1)));if(Number.isNaN(r.getTime()))return"";let s=new Intl.DateTimeFormat(_[e]??"en-US",{month:"long",year:"numeric",timeZone:"UTC"}).format(r);return`<time class="rv-date" datetime="${t(a.date)}">${t(s)}</time>`}function he(a,e){let n=a.filter(o=>o.rating>=1&&o.rating<=5);if(n.length<2)return"";let r=n.reduce((o,l)=>o+Number(l.rating),0)/n.length,s=j[e]??j.en,c=new Intl.NumberFormat(_[e]??"en-US",{minimumFractionDigits:1,maximumFractionDigits:1}).format(r);return`<p class="rv-sum"><span class="rv-sum-star" aria-hidden="true">${m("star",18)}</span><strong>${c}</strong><span>\xB7</span><span>${t(s.count.replace("{n}",String(a.length)))}</span></p>`}function J(a,e,n,r){if(!a.length)return"";let s=j[e]??j.en,c=o=>`<button type="button" class="rv-btn" data-rv-${o} aria-label="${t(o==="prev"?s.prev:s.next)}">${m("arrow",18,o==="prev"?'style="transform:scaleX(-1)"':"")}</button>`;return`${he(a,e)}<div class="rv" data-rv data-more="${t(s.more)}" data-less="${t(s.less)}">
-      <div class="${n} rv-track" tabindex="0">${a.map(r).join("")}</div>
+  <a class="btn btn--small" data-go href="#">${a(n.market.switch)}</a>
+  <button type="button" class="suggest-x" data-close aria-label="${a(n.market.dismiss)}">\xD7</button>
+</div>`,ne=(n,e)=>{var t;return`<p class="status" data-open-status data-hours='${a(JSON.stringify(n.hours))}' data-tz="${a((t=n.timezone)!=null?t:"Asia/Ho_Chi_Minh")}" data-open="${a(e.visit.open)}" data-closed="${a(e.visit.closed)}" hidden></p>`},Y={vi:"\u0110\xE1nh gi\xE1 ch\xFAng t\xF4i tr\xEAn Google",en:"Review us on Google",ja:"Google\u3067\u30EC\u30D3\u30E5\u30FC\u3092\u66F8\u304F",ko:"Google\uC5D0 \uD6C4\uAE30 \uB0A8\uAE30\uAE30",zh:"\u5728 Google \u4E0A\u8BC4\u4EF7\u6211\u4EEC",th:"\u0E23\u0E35\u0E27\u0E34\u0E27\u0E40\u0E23\u0E32\u0E1A\u0E19 Google",id:"Beri ulasan di Google",es:"Opina sobre nosotros en Google",fr:"Donnez votre avis sur Google",de:"Bewerten Sie uns bei Google",pt:"Avalie-nos no Google",ru:"\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u043E\u0442\u0437\u044B\u0432 \u0432 Google"},ye=/^(?:g\.page|g\.co|goo\.gl|maps\.app\.goo\.gl|(?:[a-z0-9-]+\.)*google\.[a-z.]{2,6})$/i,be=n=>{var e;try{let t=new URL(String((e=n.googleReview)!=null?e:"").trim());return t.protocol==="https:"&&ye.test(t.hostname)?t.href:""}catch{return""}},A=(n,e,t,o="btn btn--line")=>{var i;let r=be(n);if(!r)return"";let c=typeof e.reviews=="object"&&((i=e.reviews)==null?void 0:i.google)||Y[t]||Y.en;return`<p class="g-review" style="margin:28px 0 0;text-align:center"><a class="${o}" href="${a(r)}" target="_blank" rel="noopener">${f("star",16)} ${a(c)}</a></p>`},L={vi:{count:"{n} \u0111\xE1nh gi\xE1",prev:"\u0110\xE1nh gi\xE1 tr\u01B0\u1EDBc",next:"\u0110\xE1nh gi\xE1 ti\u1EBFp",more:"Xem th\xEAm",less:"Thu g\u1ECDn"},en:{count:"{n} reviews",prev:"Previous reviews",next:"More reviews",more:"Read more",less:"Show less"},ja:{count:"\u30EC\u30D3\u30E5\u30FC{n}\u4EF6",prev:"\u524D\u306E\u30EC\u30D3\u30E5\u30FC",next:"\u6B21\u306E\u30EC\u30D3\u30E5\u30FC",more:"\u7D9A\u304D\u3092\u8AAD\u3080",less:"\u9589\u3058\u308B"},ko:{count:"\uD6C4\uAE30 {n}\uAC1C",prev:"\uC774\uC804 \uD6C4\uAE30",next:"\uB2E4\uC74C \uD6C4\uAE30",more:"\uB354 \uBCF4\uAE30",less:"\uC811\uAE30"},zh:{count:"{n} \u6761\u8BC4\u4EF7",prev:"\u4E0A\u4E00\u7EC4\u8BC4\u4EF7",next:"\u66F4\u591A\u8BC4\u4EF7",more:"\u5C55\u5F00",less:"\u6536\u8D77"},th:{count:"{n} \u0E23\u0E35\u0E27\u0E34\u0E27",prev:"\u0E23\u0E35\u0E27\u0E34\u0E27\u0E01\u0E48\u0E2D\u0E19\u0E2B\u0E19\u0E49\u0E32",next:"\u0E23\u0E35\u0E27\u0E34\u0E27\u0E16\u0E31\u0E14\u0E44\u0E1B",more:"\u0E2D\u0E48\u0E32\u0E19\u0E15\u0E48\u0E2D",less:"\u0E22\u0E48\u0E2D"},id:{count:"{n} ulasan",prev:"Ulasan sebelumnya",next:"Ulasan berikutnya",more:"Selengkapnya",less:"Tutup"},es:{count:"{n} opiniones",prev:"Opiniones anteriores",next:"M\xE1s opiniones",more:"Leer m\xE1s",less:"Ver menos"},fr:{count:"{n} avis",prev:"Avis pr\xE9c\xE9dents",next:"Plus d\u2019avis",more:"Lire la suite",less:"R\xE9duire"},de:{count:"{n} Bewertungen",prev:"Vorherige Bewertungen",next:"Weitere Bewertungen",more:"Weiterlesen",less:"Weniger"},pt:{count:"{n} avalia\xE7\xF5es",prev:"Avalia\xE7\xF5es anteriores",next:"Mais avalia\xE7\xF5es",more:"Ler mais",less:"Mostrar menos"},ru:{count:"\u041E\u0442\u0437\u044B\u0432\u043E\u0432: {n}",prev:"\u041F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0438\u0435 \u043E\u0442\u0437\u044B\u0432\u044B",next:"\u0415\u0449\u0451 \u043E\u0442\u0437\u044B\u0432\u044B",more:"\u0427\u0438\u0442\u0430\u0442\u044C \u0434\u0430\u043B\u044C\u0448\u0435",less:"\u0421\u0432\u0435\u0440\u043D\u0443\u0442\u044C"}},oe={vi:"vi-VN",en:"en-US",ja:"ja-JP",ko:"ko-KR",zh:"zh-CN",th:"th-TH",id:"id-ID",es:"es-ES",fr:"fr-FR",de:"de-DE",pt:"pt-BR",ru:"ru-RU"},F=n=>{var e;return((e=n.reviews)!=null?e:[]).filter(t=>t&&(t.name||t.text)&&!(typeof t.text=="object"&&t.text&&!Object.values(t.text).some(Boolean)&&!t.name))};function re(n,e){var c,i,s;let t=/^(\d{4})-(\d{2})(?:-(\d{2}))?$/.exec(String((c=n==null?void 0:n.date)!=null?c:"").trim());if(!t)return"";let o=new Date(Date.UTC(+t[1],+t[2]-1,+((i=t[3])!=null?i:1)));if(Number.isNaN(o.getTime()))return"";let r=new Intl.DateTimeFormat((s=oe[e])!=null?s:"en-US",{month:"long",year:"numeric",timeZone:"UTC"}).format(o);return`<time class="rv-date" datetime="${a(n.date)}">${a(r)}</time>`}function $e(n,e){var i,s;let t=n.filter(d=>d.rating>=1&&d.rating<=5);if(t.length<2)return"";let o=t.reduce((d,m)=>d+Number(m.rating),0)/t.length,r=(i=L[e])!=null?i:L.en,c=new Intl.NumberFormat((s=oe[e])!=null?s:"en-US",{minimumFractionDigits:1,maximumFractionDigits:1}).format(o);return`<p class="rv-sum"><span class="rv-sum-star" aria-hidden="true">${f("star",18)}</span><strong>${c}</strong><span>\xB7</span><span>${a(r.count.replace("{n}",String(n.length)))}</span></p>`}function se(n,e,t,o){var i;if(!n.length)return"";let r=(i=L[e])!=null?i:L.en,c=s=>`<button type="button" class="rv-btn" data-rv-${s} aria-label="${a(s==="prev"?r.prev:r.next)}">${f("arrow",18,s==="prev"?'style="transform:scaleX(-1)"':"")}</button>`;return`${$e(n,e)}<div class="rv" data-rv data-more="${a(r.more)}" data-less="${a(r.less)}">
+      <div class="${t} rv-track" tabindex="0">${n.map(o).join("")}</div>
       <div class="rv-nav" hidden>${c("prev")}${c("next")}</div>
-    </div>${ue}`}var ue=`<style>
+    </div>${ke}`}var ke=`<style>
 .rv{--rv-gap:20px}
 .rv>.rv-track.rv-track{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 2 * var(--rv-gap)) / 3);gap:var(--rv-gap);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;padding:2px;margin:-2px}
 .rv>.rv-track::-webkit-scrollbar{display:none}
@@ -31,23 +31,23 @@ const upd=()=>{const max=t.scrollWidth-t.clientWidth-2;nav.hidden=max<=0;p.disab
 p.onclick=()=>t.scrollBy({left:-step(),behavior:'smooth'});n.onclick=()=>t.scrollBy({left:step(),behavior:'smooth'});
 t.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);
 for(const c of t.children){const q=c.querySelector('blockquote');if(!q||q.scrollHeight<=q.clientHeight+2)continue;const b=document.createElement('button');b.type='button';b.className='rv-more';b.textContent=rv.dataset.more;b.setAttribute('aria-expanded','false');b.onclick=()=>{const o=c.classList.toggle('rv-open');rv.classList.toggle('rv-x',!!t.querySelector('.rv-open'));b.textContent=o?rv.dataset.less:rv.dataset.more;b.setAttribute('aria-expanded',String(o))};q.after(b)}
-upd()}})()<\/script>`,G={vi:{label:"Chia s\u1EBB",native:"G\u1EEDi qua Zalo, Messenger\u2026",copy:"Sao ch\xE9p link",copied:"\u0110\xE3 sao ch\xE9p"},en:{label:"Share",native:"Send via apps\u2026",copy:"Copy link",copied:"Copied"},ja:{label:"\u30B7\u30A7\u30A2",native:"\u30A2\u30D7\u30EA\u3067\u9001\u308B\u2026",copy:"\u30EA\u30F3\u30AF\u3092\u30B3\u30D4\u30FC",copied:"\u30B3\u30D4\u30FC\u3057\u307E\u3057\u305F"},ko:{label:"\uACF5\uC720",native:"\uC571\uC73C\uB85C \uBCF4\uB0B4\uAE30\u2026",copy:"\uB9C1\uD06C \uBCF5\uC0AC",copied:"\uBCF5\uC0AC\uB428"},zh:{label:"\u5206\u4EAB",native:"\u901A\u8FC7\u5E94\u7528\u53D1\u9001\u2026",copy:"\u590D\u5236\u94FE\u63A5",copied:"\u5DF2\u590D\u5236"},th:{label:"\u0E41\u0E0A\u0E23\u0E4C",native:"\u0E2A\u0E48\u0E07\u0E1C\u0E48\u0E32\u0E19\u0E41\u0E2D\u0E1B\u2026",copy:"\u0E04\u0E31\u0E14\u0E25\u0E2D\u0E01\u0E25\u0E34\u0E07\u0E01\u0E4C",copied:"\u0E04\u0E31\u0E14\u0E25\u0E2D\u0E01\u0E41\u0E25\u0E49\u0E27"},id:{label:"Bagikan",native:"Kirim lewat aplikasi\u2026",copy:"Salin tautan",copied:"Tersalin"},es:{label:"Compartir",native:"Enviar por apps\u2026",copy:"Copiar enlace",copied:"Copiado"},fr:{label:"Partager",native:"Envoyer via une app\u2026",copy:"Copier le lien",copied:"Copi\xE9"},de:{label:"Teilen",native:"Per App senden\u2026",copy:"Link kopieren",copied:"Kopiert"},pt:{label:"Compartilhar",native:"Enviar por apps\u2026",copy:"Copiar link",copied:"Copiado"},ru:{label:"\u041F\u043E\u0434\u0435\u043B\u0438\u0442\u044C\u0441\u044F",native:"\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u0447\u0435\u0440\u0435\u0437 \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435\u2026",copy:"\u041A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443",copied:"\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u043E"}};function Z(a){let e=G[a]??G.en,n="display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border:1px solid currentColor;border-radius:999px;background:none;color:inherit;font:inherit;font-size:13px;text-decoration:none;cursor:pointer;opacity:.85";return`<div class="kp-share" data-share data-copied="${t(e.copied)}" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px;font-size:13px">
-      <span style="opacity:.65">${t(e.label)}</span>
-      <button type="button" data-share-native hidden style="${n}">${m("share",15)} ${t(e.native)}</button>
-      <a data-share-fb href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener" style="${n}">${m("facebook",15)} Facebook</a>
-      <button type="button" data-share-copy style="${n}">${m("link",15)} <span>${t(e.copy)}</span></button>
-    </div>`}var Y=(a,e,n)=>a.badge===!1?"":`<a class="made" href="https://kingpes.net/${t(n==="vi"||n==="ja"?n:"en")}/?ref=badge" rel="nofollow" target="_blank">${t(e.footer.madeWith)}</a>`;function X({site:a,markets:e,url:n,abs:r}){let s=e.find(o=>o.default)??e[0],c=e.map(o=>({id:o.id,lang:o.lang,country:o.country}));return`<!doctype html>
-<html lang="${t(s.lang)}">
+upd()}})()<\/script>`,X={vi:{label:"Chia s\u1EBB",native:"G\u1EEDi qua Zalo, Messenger\u2026",copy:"Sao ch\xE9p link",copied:"\u0110\xE3 sao ch\xE9p"},en:{label:"Share",native:"Send via apps\u2026",copy:"Copy link",copied:"Copied"},ja:{label:"\u30B7\u30A7\u30A2",native:"\u30A2\u30D7\u30EA\u3067\u9001\u308B\u2026",copy:"\u30EA\u30F3\u30AF\u3092\u30B3\u30D4\u30FC",copied:"\u30B3\u30D4\u30FC\u3057\u307E\u3057\u305F"},ko:{label:"\uACF5\uC720",native:"\uC571\uC73C\uB85C \uBCF4\uB0B4\uAE30\u2026",copy:"\uB9C1\uD06C \uBCF5\uC0AC",copied:"\uBCF5\uC0AC\uB428"},zh:{label:"\u5206\u4EAB",native:"\u901A\u8FC7\u5E94\u7528\u53D1\u9001\u2026",copy:"\u590D\u5236\u94FE\u63A5",copied:"\u5DF2\u590D\u5236"},th:{label:"\u0E41\u0E0A\u0E23\u0E4C",native:"\u0E2A\u0E48\u0E07\u0E1C\u0E48\u0E32\u0E19\u0E41\u0E2D\u0E1B\u2026",copy:"\u0E04\u0E31\u0E14\u0E25\u0E2D\u0E01\u0E25\u0E34\u0E07\u0E01\u0E4C",copied:"\u0E04\u0E31\u0E14\u0E25\u0E2D\u0E01\u0E41\u0E25\u0E49\u0E27"},id:{label:"Bagikan",native:"Kirim lewat aplikasi\u2026",copy:"Salin tautan",copied:"Tersalin"},es:{label:"Compartir",native:"Enviar por apps\u2026",copy:"Copiar enlace",copied:"Copiado"},fr:{label:"Partager",native:"Envoyer via une app\u2026",copy:"Copier le lien",copied:"Copi\xE9"},de:{label:"Teilen",native:"Per App senden\u2026",copy:"Link kopieren",copied:"Kopiert"},pt:{label:"Compartilhar",native:"Enviar por apps\u2026",copy:"Copiar link",copied:"Copiado"},ru:{label:"\u041F\u043E\u0434\u0435\u043B\u0438\u0442\u044C\u0441\u044F",native:"\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u0447\u0435\u0440\u0435\u0437 \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435\u2026",copy:"\u041A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443",copied:"\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u043D\u043E"}};function ie(n){var o;let e=(o=X[n])!=null?o:X.en,t="display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border:1px solid currentColor;border-radius:999px;background:none;color:inherit;font:inherit;font-size:13px;text-decoration:none;cursor:pointer;opacity:.85";return`<div class="kp-share" data-share data-copied="${a(e.copied)}" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px;font-size:13px">
+      <span style="opacity:.65">${a(e.label)}</span>
+      <button type="button" data-share-native hidden style="${t}">${f("share",15)} ${a(e.native)}</button>
+      <a data-share-fb href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener" style="${t}">${f("facebook",15)} Facebook</a>
+      <button type="button" data-share-copy style="${t}">${f("link",15)} <span>${a(e.copy)}</span></button>
+    </div>`}var ce=(n,e,t)=>n.badge===!1?"":`<a class="made" href="https://kingpes.net/${a(t==="vi"||t==="ja"?t:"en")}/?ref=badge" rel="nofollow" target="_blank">${a(e.footer.madeWith)}</a>`;function le({site:n,markets:e,url:t,abs:o}){var i;let r=(i=e.find(s=>s.default))!=null?i:e[0],c=e.map(s=>({id:s.id,lang:s.lang,country:s.country}));return`<!doctype html>
+<html lang="${a(r.lang)}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${t(a.name)}</title>
-<link rel="canonical" href="${r(`${s.id}/`)}">
-${e.map(o=>`<link rel="alternate" hreflang="${t(o.lang)}-${t(o.country)}" href="${r(`${o.id}/`)}">`).join(`
+<title>${a(n.name)}</title>
+<link rel="canonical" href="${o(`${r.id}/`)}">
+${e.map(s=>`<link rel="alternate" hreflang="${a(s.lang)}-${a(s.country)}" href="${o(`${s.id}/`)}">`).join(`
 `)}
 <script>
 (function () {
-  var markets = ${JSON.stringify(c)}, root = ${JSON.stringify(n(""))};
+  var markets = ${JSON.stringify(c)}, root = ${JSON.stringify(t(""))};
   var prefs = (navigator.languages || [navigator.language || '']).map(function (l) { return l.toLowerCase(); });
   var pick = null;
   prefs.some(function (p) { var parts = p.split('-'); return markets.some(function (m) {
@@ -56,215 +56,215 @@ ${e.map(o=>`<link rel="alternate" hreflang="${t(o.lang)}-${t(o.country)}" href="
 })();
 <\/script>
 </head>
-<body><p>${e.map(o=>`<a href="${n(`${o.id}/`)}">${t(o.country)}</a>`).join(" \xB7 ")}</p></body>
+<body><p>${e.map(s=>`<a href="${t(`${s.id}/`)}">${a(s.country)}</a>`).join(" \xB7 ")}</p></body>
 </html>
-`}var me="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap";function Be({site:a,catalog:e,i18n:n,template:r,basePath:s="/",siteUrl:c=a.domain}){let o=F(s),l=p=>new URL(o(p),c).href,u=e.markets,g=[],y=(p,i)=>`${i.id}/${P(p.slug,i.lang)}/`;for(let p of u){let i=p.lang,f=n[i]??n.vi,h=v=>P(v,i),$=L(e,p),w=a.orderChannels?.[p.id]??["phone"],M={site:a,catalog:e,market:p,markets:u,lang:i,t:f,L:h,url:o,abs:l,channels:w,products:$,productPath:y,price:v=>O(v.price,p),template:r};g.push({path:`${p.id}/index.html`,html:Q(M,{kind:"home"})});for(let v of $)g.push({path:`${y(v,p)}index.html`,html:Q(M,{kind:"product",product:v})})}return g.push({path:"index.html",html:X({site:a,markets:u,url:o,abs:l})}),g}function Q(a,e){let{site:n,market:r,markets:s,lang:c,L:o,url:l,abs:u,catalog:g,productPath:y}=a,p=e.kind==="home",i=e.product,f=p?`${r.id}/`:y(i,r),h=p?`${n.name} \xB7 ${o(n.tagline)}`:`${o(i.name)} \xB7 ${n.name}`,$=o(p?n.intro:i.description),w=s.map(d=>{if(p)return{m:d,href:`${d.id}/`};let b=g.products.find(ae=>ae.id===i.id);return L({products:[b]},d).length>0?{m:d,href:y(b,d)}:null}).filter(Boolean),C=s.map(d=>({m:d,href:w.find(b=>b.m.id===d.id)?.href??`${d.id}/`})),M=s.find(d=>d.default)??s[0],v=n.theme??{},ee=Object.entries({primary:v.primary,ink:v.ink,bg:v.bg,surface:v.surface,soft:v.soft,accent:v.accent}).filter(([,d])=>d).map(([d,b])=>`--${d}:${b}`).join(";"),te=C.map(({m:d,href:b})=>({id:d.id,lang:d.lang,country:d.country,currency:d.currency,href:l(b)}));return`<!doctype html>
-<html lang="${t(c)}">
+`}var xe="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap";function Ie({site:n,catalog:e,i18n:t,template:o,basePath:r="/",siteUrl:c=n.domain}){var u,l,g;let i=Z(r),s=p=>new URL(i(p),c).href,d=e.markets,m=[],v=(p,y)=>`${y.id}/${j(p.slug,y.lang)}/`;for(let p of d){let y=p.lang,M=(u=t[y])!=null?u:t.vi,N=k=>j(k,y),D=q(e,p),$=(g=(l=n.orderChannels)==null?void 0:l[p.id])!=null?g:["phone"],z={site:n,catalog:e,market:p,markets:d,lang:y,t:M,L:N,url:i,abs:s,channels:$,products:D,productPath:v,price:k=>J(k.price,p),template:o};m.push({path:`${p.id}/index.html`,html:pe(z,{kind:"home"})});for(let k of D)m.push({path:`${v(k,p)}index.html`,html:pe(z,{kind:"product",product:k})})}return m.push({path:"index.html",html:le({site:n,markets:d,url:i,abs:s})}),m}function pe(n,e){var k,I,H,U,W,_,K;let{site:t,market:o,markets:r,lang:c,L:i,url:s,abs:d,catalog:m,productPath:v}=n,u=e.kind==="home",l=e.product,g=u?`${o.id}/`:v(l,o),p=u?`${t.name} \xB7 ${i(t.tagline)}`:`${i(l.name)} \xB7 ${t.name}`,y=i(u?t.intro:l.description),M=r.map(h=>{if(u)return{m:h,href:`${h.id}/`};let b=m.products.find(E=>E.id===l.id);return q({products:[b]},h).length>0?{m:h,href:v(b,h)}:null}).filter(Boolean),N=r.map(h=>{var b,R;return{m:h,href:(R=(b=M.find(E=>E.m.id===h.id))==null?void 0:b.href)!=null?R:`${h.id}/`}}),D=(k=r.find(h=>h.default))!=null?k:r[0],$=(I=t.theme)!=null?I:{},G=Object.entries({primary:$.primary,ink:$.ink,bg:$.bg,surface:$.surface,soft:$.soft,accent:$.accent}).filter(([,h])=>h).map(([h,b])=>`--${h}:${b}`).join(";"),z=N.map(({m:h,href:b})=>({id:h.id,lang:h.lang,country:h.country,currency:h.currency,href:s(b)}));return`<!doctype html>
+<html lang="${a(c)}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>${t(h)}</title>
-<meta name="description" content="${t($)}">
-<link rel="canonical" href="${u(f)}">
-${w.map(({m:d,href:b})=>`<link rel="alternate" hreflang="${t(d.lang)}-${t(d.country)}" href="${u(b)}">`).join(`
+<title>${a(p)}</title>
+<meta name="description" content="${a(y)}">
+<link rel="canonical" href="${d(g)}">
+${M.map(({m:h,href:b})=>`<link rel="alternate" hreflang="${a(h.lang)}-${a(h.country)}" href="${d(b)}">`).join(`
 `)}
-<link rel="alternate" hreflang="x-default" href="${u(p?`${M.id}/`:w.find(d=>d.m.id===M.id)?.href??f)}">
-<meta property="og:type" content="${p?"website":"product"}">
-<meta property="og:title" content="${t(h)}">
-<meta property="og:description" content="${t($)}">
-<meta property="og:url" content="${u(f)}">
-<meta property="og:site_name" content="${t(n.name)}">
-<meta property="og:image" content="${t(u(N(p?n.heroImage??"photos/hero.webp":i.image)??(p?n.heroImage:i.image)))}">
-<meta name="theme-color" content="${t(v.bg??"#FFF7F2")}">
+<link rel="alternate" hreflang="x-default" href="${d(u?`${D.id}/`:(U=(H=M.find(h=>h.m.id===D.id))==null?void 0:H.href)!=null?U:g)}">
+<meta property="og:type" content="${u?"website":"product"}">
+<meta property="og:title" content="${a(p)}">
+<meta property="og:description" content="${a(y)}">
+<meta property="og:url" content="${d(g)}">
+<meta property="og:site_name" content="${a(t.name)}">
+<meta property="og:image" content="${a(d((_=C(u?(W=t.heroImage)!=null?W:"photos/hero.webp":l.image))!=null?_:u?t.heroImage:l.image))}">
+<meta name="theme-color" content="${a((K=$.bg)!=null?K:"#FFF7F2")}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="${me}">
-<link rel="stylesheet" href="${l("assets/style.css")}">
-<style>:root{${ee}}</style>
-${p?R(ke(a)):R(xe(a,i))}
-<script src="${l("assets/site.js")}" defer><\/script>
+<link rel="stylesheet" href="${xe}">
+<link rel="stylesheet" href="${s("assets/style.css")}">
+<style>:root{${G}}</style>
+${u?O(ze(n)):O(je(n,l))}
+<script src="${s("assets/site.js")}" defer><\/script>
 </head>
-<body data-market="${t(r.id)}" data-markets='${t(JSON.stringify(te))}'>
+<body data-market="${a(o.id)}" data-markets='${a(JSON.stringify(z))}'>
 <a class="skip" href="#main">${c==="vi"?"B\u1ECF qua, t\u1EDBi n\u1ED9i dung":"Skip to content"}</a>
-${H(a.t)}
-${p&&o(n.announcement)?`<p class="announce">${t(o(n.announcement))}</p>`:""}
-${ge(a,C)}
+${ae(n.t)}
+${u&&i(t.announcement)?`<p class="announce">${a(i(t.announcement))}</p>`:""}
+${we(n,N)}
 <main id="main">
-${p?fe(a):ye(a,i)}
+${u?Me(n):Se(n,l)}
 </main>
-${be(a)}
-${$e(a,p?"":o(i.name))}
+${Pe(n)}
+${Ne(n,u?"":i(l.name))}
 </body>
 </html>
-`}function ge(a,e){let{site:n,market:r,t:s,url:c,channels:o}=a,l=c(`${r.id}/`);return`<header class="header">
+`}function we(n,e){var d;let{site:t,market:o,t:r,url:c,channels:i}=n,s=c(`${o.id}/`);return`<header class="header">
   <div class="wrap bar">
-    <a class="brand" href="${l}">
-      ${n.logo?`<img src="${t(S(c,n.logo))}" alt="" width="40" height="40">`:`<span class="brand-mark" aria-hidden="true">${t(n.name.trim()[0]??"")}</span>`}
-      <span>${t(n.name)}</span>
+    <a class="brand" href="${s}">
+      ${t.logo?`<img src="${a(P(c,t.logo))}" alt="" width="40" height="40">`:`<span class="brand-mark" aria-hidden="true">${a((d=t.name.trim()[0])!=null?d:"")}</span>`}
+      <span>${a(t.name)}</span>
     </a>
     <nav class="nav" aria-label="Menu">
-      <a href="${l}#menu">${t(s.nav.menu)}</a>
-      <a href="${l}#story">${t(s.nav.story)}</a>
-      <a href="${l}#visit">${t(s.nav.visit)}</a>
+      <a href="${s}#menu">${a(r.nav.menu)}</a>
+      <a href="${s}#story">${a(r.nav.story)}</a>
+      <a href="${s}#visit">${a(r.nav.visit)}</a>
     </nav>
     <div class="bar-end">
       ${e.length>1?`<details class="market">
-        <summary aria-label="${t(s.market.label)}">${m("globe",18)}<span>${t(r.id.toUpperCase())}<span class="cur"> \xB7 ${t(U(r))}</span></span></summary>
-        <ul>${e.map(({m:u,href:g})=>`<li><a href="${c(g)}" hreflang="${t(u.lang)}"${u.id===r.id?' aria-current="true"':""}>${t(u.country)} \xB7 ${t(u.currency)}</a></li>`).join("")}</ul>
+        <summary aria-label="${a(r.market.label)}">${f("globe",18)}<span>${a(o.id.toUpperCase())}<span class="cur"> \xB7 ${a(te(o))}</span></span></summary>
+        <ul>${e.map(({m,href:v})=>`<li><a href="${c(v)}" hreflang="${a(m.lang)}"${m.id===o.id?' aria-current="true"':""}>${a(m.country)} \xB7 ${a(m.currency)}</a></li>`).join("")}</ul>
       </details>`:""}
-      <a class="btn btn--primary hide-sm" href="${t(k(o[0],n.contact))}" ${x(o[0])}>${t(s.nav.order)}</a>
+      <a class="btn btn--primary hide-sm" href="${a(x(i[0],t.contact))}" ${w(i[0])}>${a(r.nav.order)}</a>
       <details class="mnav">
-        <summary aria-label="${t(s.nav.openMenu)}">${m("menu",22)}</summary>
+        <summary aria-label="${a(r.nav.openMenu)}">${f("menu",22)}</summary>
         <nav aria-label="Menu">
-          <a href="${l}#menu">${t(s.nav.menu)}</a>
-          <a href="${l}#story">${t(s.nav.story)}</a>
-          <a href="${l}#visit">${t(s.nav.visit)}</a>
+          <a href="${s}#menu">${a(r.nav.menu)}</a>
+          <a href="${s}#story">${a(r.nav.story)}</a>
+          <a href="${s}#visit">${a(r.nav.visit)}</a>
         </nav>
       </details>
     </div>
   </div>
-</header>`}function fe(a){let{site:e,catalog:n,t:r,L:s,lang:c,url:o,products:l,channels:u}=a,g=l.filter(i=>i.featured).slice(0,4),y=e.heroImage?t(S(o,e.heroImage)):o("assets/photos/hero.webp"),p=n.categories.filter(i=>l.some(f=>f.category===i.id));return`
+</header>`}function Me(n){let{site:e,catalog:t,t:o,L:r,lang:c,url:i,products:s,channels:d}=n,m=s.filter(l=>l.featured).slice(0,4),v=e.heroImage?a(P(i,e.heroImage)):i("assets/photos/hero.webp"),u=t.categories.filter(l=>s.some(g=>g.category===l.id));return`
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <h1>${t(s(e.tagline))}</h1>
-      <p class="lead">${t(s(e.intro))}</p>
+      <h1>${a(r(e.tagline))}</h1>
+      <p class="lead">${a(r(e.intro))}</p>
       <div class="actions">
-        <a class="btn btn--primary btn--lg" href="#menu">${t(r.hero.cta)} ${m("arrow",18)}</a>
-        ${u.map(i=>`<a class="btn btn--ghost btn--lg" href="${t(k(i,e.contact))}" ${x(i)}>${m(i,18)} ${t(r.orderVia[i])}</a>`).join("")}
+        <a class="btn btn--primary btn--lg" href="#menu">${a(o.hero.cta)} ${f("arrow",18)}</a>
+        ${d.map(l=>`<a class="btn btn--ghost btn--lg" href="${a(x(l,e.contact))}" ${w(l)}>${f(l,18)} ${a(o.orderVia[l])}</a>`).join("")}
       </div>
-      <ul class="badges">${r.hero.badges.map(i=>`<li>${t(i)}</li>`).join("")}</ul>
+      <ul class="badges">${o.hero.badges.map(l=>`<li>${a(l)}</li>`).join("")}</ul>
     </div>
     <div class="hero-art">
       <div class="blob" aria-hidden="true"></div>
-      <img src="${y}" alt="${t(e.name)}" width="1000" height="1000" fetchpriority="high">
+      <img src="${v}" alt="${a(e.name)}" width="1000" height="1000" fetchpriority="high">
     </div>
   </div>
   <div class="scallop" aria-hidden="true"></div>
 </section>
 
-${g.length?`<section class="section section--soft" aria-labelledby="best">
+${m.length?`<section class="section section--soft" aria-labelledby="best">
   <div class="wrap">
-    <h2 id="best" class="h2">${t(r.bestsellers)}</h2>
-    <div class="grid grid--4">${g.map(i=>q(a,i)).join("")}</div>
+    <h2 id="best" class="h2">${a(o.bestsellers)}</h2>
+    <div class="grid grid--4">${m.map(l=>V(n,l)).join("")}</div>
   </div>
 </section>`:""}
 
 <section class="section" id="menu" aria-labelledby="menu-title">
   <div class="wrap">
     <div class="head">
-      <h2 id="menu-title" class="h2">${t(r.menu.title)}</h2>
-      <p class="muted">${t(r.menu.text)}</p>
+      <h2 id="menu-title" class="h2">${a(o.menu.title)}</h2>
+      <p class="muted">${a(o.menu.text)}</p>
     </div>
-    <nav class="cats" aria-label="${t(r.menu.title)}">${p.map(i=>`<a href="#cat-${t(i.id)}">${t(s(i.name))}</a>`).join("")}</nav>
-    ${p.map(i=>`<div class="cat" id="cat-${t(i.id)}">
-      <h3 class="h3">${t(s(i.name))}</h3>
-      <div class="grid grid--4">${l.filter(f=>f.category===i.id).map(f=>q(a,f)).join("")}</div>
+    <nav class="cats" aria-label="${a(o.menu.title)}">${u.map(l=>`<a href="#cat-${a(l.id)}">${a(r(l.name))}</a>`).join("")}</nav>
+    ${u.map(l=>`<div class="cat" id="cat-${a(l.id)}">
+      <h3 class="h3">${a(r(l.name))}</h3>
+      <div class="grid grid--4">${s.filter(g=>g.category===l.id).map(g=>V(n,g)).join("")}</div>
     </div>`).join("")}
   </div>
 </section>
 
 ${e.story?`<section class="section section--soft" id="story" aria-labelledby="story-title">
   <div class="wrap story">
-    <div class="story-art" aria-hidden="true"><img sizes="auto, (max-width: 640px) 100vw, 580px" src="${o("assets/photos/story.webp")}" alt="" width="900" height="900" loading="lazy"></div>
+    <div class="story-art" aria-hidden="true"><img sizes="auto, (max-width: 640px) 100vw, 580px" src="${i("assets/photos/story.webp")}" alt="" width="900" height="900" loading="lazy"></div>
     <div class="story-copy">
-      <h2 id="story-title" class="h2">${t(s(e.story.title))}</h2>
-      <p>${t(s(e.story.body))}</p>
-      ${s(e.story.quote)?`<blockquote><p>\u201C${t(s(e.story.quote))}\u201D</p>${e.story.signature?`<cite>${t(e.story.signature)}</cite>`:""}</blockquote>`:""}
+      <h2 id="story-title" class="h2">${a(r(e.story.title))}</h2>
+      <p>${a(r(e.story.body))}</p>
+      ${r(e.story.quote)?`<blockquote><p>\u201C${a(r(e.story.quote))}\u201D</p>${e.story.signature?`<cite>${a(e.story.signature)}</cite>`:""}</blockquote>`:""}
     </div>
   </div>
 </section>`:""}
 
 <section class="section" aria-labelledby="how-title">
   <div class="wrap">
-    <h2 id="how-title" class="h2 center">${t(r.how.title)}</h2>
-    <ol class="steps">${r.how.steps.map((i,f)=>`<li><span class="n">${f+1}</span><h3>${t(i.t)}</h3><p class="muted">${t(i.d)}</p></li>`).join("")}</ol>
+    <h2 id="how-title" class="h2 center">${a(o.how.title)}</h2>
+    <ol class="steps">${o.how.steps.map((l,g)=>`<li><span class="n">${g+1}</span><h3>${a(l.t)}</h3><p class="muted">${a(l.d)}</p></li>`).join("")}</ol>
   </div>
 </section>
 
-${e.showReviews!==!1&&(B(e).length||E(e,r,c))?`<section class="section section--soft" aria-labelledby="rev-title">
+${e.showReviews!==!1&&(F(e).length||A(e,o,c))?`<section class="section section--soft" aria-labelledby="rev-title">
   <div class="wrap">
-    <h2 id="rev-title" class="h2">${t(r.reviews)}</h2>
-    ${J(B(e),c,"grid grid--3",i=>`<figure class="review">
-      <div class="stars" aria-label="${i.rating}/5">${Array.from({length:5},(f,h)=>`<span class="${h<i.rating?"on":""}">${m("star",18)}</span>`).join("")}</div>
-      <blockquote>${t(s(i.text))}</blockquote>
-      <figcaption>${t(i.name)}${K(i,c)}</figcaption>
-    </figure>`)}${E(e,r,c,"btn btn--ghost")}
+    <h2 id="rev-title" class="h2">${a(o.reviews)}</h2>
+    ${se(F(e),c,"grid grid--3",l=>`<figure class="review">
+      <div class="stars" aria-label="${l.rating}/5">${Array.from({length:5},(g,p)=>`<span class="${p<l.rating?"on":""}">${f("star",18)}</span>`).join("")}</div>
+      <blockquote>${a(r(l.text))}</blockquote>
+      <figcaption>${a(l.name)}${re(l,c)}</figcaption>
+    </figure>`)}${A(e,o,c,"btn btn--ghost")}
   </div>
 </section>`:""}
 
-${ve(a)}`}function q(a,e){let{t:n,L:r,url:s,market:c,productPath:o,price:l,site:u,channels:g}=a,y=s(o(e,c)),p=n.orderText.replace("{product}",r(e.name));return`<article class="card${e.inStock?"":" is-out"}">
-  <a class="card-img" href="${y}" tabindex="-1" aria-hidden="true">
-    <img sizes="auto, (max-width: 640px) 50vw, 280px" src="${t(S(s,e.image))}" alt="" width="800" height="800" loading="lazy">
-    ${e.badge&&e.inStock?`<span class="tag">${t(r(e.badge))}</span>`:""}
-    ${e.inStock?"":`<span class="tag tag--out">${t(n.soldOut)}</span>`}
+${De(n)}`}function V(n,e){let{t,L:o,url:r,market:c,productPath:i,price:s,site:d,channels:m}=n,v=r(i(e,c)),u=t.orderText.replace("{product}",o(e.name));return`<article class="card${e.inStock?"":" is-out"}">
+  <a class="card-img" href="${v}" tabindex="-1" aria-hidden="true">
+    <img sizes="auto, (max-width: 640px) 50vw, 280px" src="${a(P(r,e.image))}" alt="" width="800" height="800" loading="lazy">
+    ${e.badge&&e.inStock?`<span class="tag">${a(o(e.badge))}</span>`:""}
+    ${e.inStock?"":`<span class="tag tag--out">${a(t.soldOut)}</span>`}
   </a>
   <div class="card-body">
-    <h4 class="card-title"><a href="${y}">${t(r(e.name))}</a></h4>
-    <p class="card-desc muted">${t(r(e.description))}</p>
+    <h4 class="card-title"><a href="${v}">${a(o(e.name))}</a></h4>
+    <p class="card-desc muted">${a(o(e.description))}</p>
     <div class="card-foot">
-      <span class="price">${t(l(e))}</span>
-      ${e.inStock?`<a class="btn btn--small btn--primary" href="${t(k(g[0],u.contact,p))}" ${x(g[0])} aria-label="${t(n.order)} ${t(r(e.name))}">${t(n.order)}</a>`:`<span class="btn btn--small btn--disabled" aria-disabled="true">${t(n.soldOut)}</span>`}
+      <span class="price">${a(s(e))}</span>
+      ${e.inStock?`<a class="btn btn--small btn--primary" href="${a(x(m[0],d.contact,u))}" ${w(m[0])} aria-label="${a(t.order)} ${a(o(e.name))}">${a(t.order)}</a>`:`<span class="btn btn--small btn--disabled" aria-disabled="true">${a(t.soldOut)}</span>`}
     </div>
   </div>
-</article>`}function ve(a){let{site:e,t:n,L:r}=a,s=`https://www.google.com/maps?q=${encodeURIComponent(e.contact.mapQuery??r(e.contact.address))}&output=embed`,c=`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(e.contact.mapQuery??r(e.contact.address))}`;return`<section class="section" id="visit" aria-labelledby="visit-title">
+</article>`}function De(n){var i,s;let{site:e,t,L:o}=n,r=`https://www.google.com/maps?q=${encodeURIComponent((i=e.contact.mapQuery)!=null?i:o(e.contact.address))}&output=embed`,c=`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent((s=e.contact.mapQuery)!=null?s:o(e.contact.address))}`;return`<section class="section" id="visit" aria-labelledby="visit-title">
   <div class="wrap visit">
     <div class="visit-info">
-      <h2 id="visit-title" class="h2">${t(n.visit.title)}</h2>
-      ${W(e,n)}
-      <h3 class="h4">${m("clock",18)} ${t(n.visit.hours)}</h3>
-      <table class="hours"><tbody>${e.hours.map(o=>`<tr><th scope="row">${t(V(o.days,n.days))}</th><td>${t(o.open)} \u2013 ${t(o.close)}</td></tr>`).join("")}</tbody></table>
-      <h3 class="h4">${m("pin",18)} ${t(n.visit.address)}</h3>
-      <p>${t(r(e.contact.address))}</p>
-      <a class="btn btn--ghost" href="${t(c)}" target="_blank" rel="noopener">${t(n.visit.directions)} ${m("arrow",16)}</a>
+      <h2 id="visit-title" class="h2">${a(t.visit.title)}</h2>
+      ${ne(e,t)}
+      <h3 class="h4">${f("clock",18)} ${a(t.visit.hours)}</h3>
+      <table class="hours"><tbody>${e.hours.map(d=>`<tr><th scope="row">${a(Q(d.days,t.days))}</th><td>${a(d.open)} \u2013 ${a(d.close)}</td></tr>`).join("")}</tbody></table>
+      <h3 class="h4">${f("pin",18)} ${a(t.visit.address)}</h3>
+      <p>${a(o(e.contact.address))}</p>
+      <a class="btn btn--ghost" href="${a(c)}" target="_blank" rel="noopener">${a(t.visit.directions)} ${f("arrow",16)}</a>
     </div>
-    <div class="map"><iframe title="${t(n.visit.address)}" src="${t(s)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <div class="map"><iframe title="${a(t.visit.address)}" src="${a(r)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
   </div>
-</section>`}function ye(a,e){let{t:n,L:r,url:s,market:c,catalog:o,products:l,site:u,channels:g,price:y}=a,p=o.categories.find(h=>h.id===e.category),i=l.filter(h=>h.id!==e.id&&h.category===e.category).concat(l.filter(h=>h.id!==e.id&&h.category!==e.category)).slice(0,4),f=n.orderText.replace("{product}",r(e.name));return`
+</section>`}function Se(n,e){let{t,L:o,url:r,market:c,catalog:i,products:s,site:d,channels:m,price:v}=n,u=i.categories.find(p=>p.id===e.category),l=s.filter(p=>p.id!==e.id&&p.category===e.category).concat(s.filter(p=>p.id!==e.id&&p.category!==e.category)).slice(0,4),g=t.orderText.replace("{product}",o(e.name));return`
 <section class="section product">
   <div class="wrap">
-    <a class="back" href="${s(`${c.id}/`)}#menu">\u2190 ${t(n.product.back)}</a>
+    <a class="back" href="${r(`${c.id}/`)}#menu">\u2190 ${a(t.product.back)}</a>
     <div class="product-grid">
-      <div class="product-img"><img src="${t(S(s,e.image))}" alt="${t(r(e.name))}" width="800" height="800" fetchpriority="high"></div>
+      <div class="product-img"><img src="${a(P(r,e.image))}" alt="${a(o(e.name))}" width="800" height="800" fetchpriority="high"></div>
       <div class="product-info">
-        ${p?`<p class="eyebrow">${t(r(p.name))}</p>`:""}
-        <h1>${t(r(e.name))}</h1>
-        <p class="price price--lg">${t(y(e))}</p>
-        <p class="lead">${t(r(e.description))}</p>
-        ${e.inStock?`<div class="actions">${g.map((h,$)=>`<a class="btn ${$===0?"btn--primary":"btn--ghost"} btn--lg" href="${t(k(h,u.contact,f))}" ${x(h)}>${m(h,18)} ${t(n.orderVia[h])}</a>`).join("")}</div>`:`<p class="tag tag--out tag--inline">${t(n.soldOut)}</p>`}
-        ${Z(a.market.lang)}
+        ${u?`<p class="eyebrow">${a(o(u.name))}</p>`:""}
+        <h1>${a(o(e.name))}</h1>
+        <p class="price price--lg">${a(v(e))}</p>
+        <p class="lead">${a(o(e.description))}</p>
+        ${e.inStock?`<div class="actions">${m.map((p,y)=>`<a class="btn ${y===0?"btn--primary":"btn--ghost"} btn--lg" href="${a(x(p,d.contact,g))}" ${w(p)}>${f(p,18)} ${a(t.orderVia[p])}</a>`).join("")}</div>`:`<p class="tag tag--out tag--inline">${a(t.soldOut)}</p>`}
+        ${ie(n.market.lang)}
       </div>
     </div>
   </div>
 </section>
-${i.length?`<section class="section section--soft" aria-labelledby="rel-title">
+${l.length?`<section class="section section--soft" aria-labelledby="rel-title">
   <div class="wrap">
-    <h2 id="rel-title" class="h2">${t(n.product.related)}</h2>
-    <div class="grid grid--4">${i.map(h=>q(a,h)).join("")}</div>
+    <h2 id="rel-title" class="h2">${a(t.product.related)}</h2>
+    <div class="grid grid--4">${l.map(p=>V(n,p)).join("")}</div>
   </div>
-</section>`:""}`}function be(a){let{site:e,t:n,L:r,market:s}=a,c=e.contact;return`<footer class="footer">
+</section>`:""}`}function Pe(n){let{site:e,t,L:o,market:r}=n,c=e.contact;return`<footer class="footer">
   <div class="wrap foot">
     <div>
-      <p class="foot-name">${t(e.name)}</p>
-      <p class="muted">${t(r(e.tagline))}</p>
+      <p class="foot-name">${a(e.name)}</p>
+      <p class="muted">${a(o(e.tagline))}</p>
     </div>
     <div>
-      <p class="foot-h">${t(n.footer.contact)}</p>
+      <p class="foot-h">${a(t.footer.contact)}</p>
       <ul>
-        ${c.phone?`<li><a href="tel:${D(c.phone)}">${t(c.phone)}</a></li>`:""}
-        ${c.email?`<li><a href="mailto:${t(c.email)}">${t(c.email)}</a></li>`:""}
-        <li>${t(r(c.address))}</li>
+        ${c.phone?`<li><a href="tel:${S(c.phone)}">${a(c.phone)}</a></li>`:""}
+        ${c.email?`<li><a href="mailto:${a(c.email)}">${a(c.email)}</a></li>`:""}
+        <li>${a(o(c.address))}</li>
       </ul>
     </div>
     ${e.social?`<div>
-      <p class="foot-h">${t(n.footer.follow)}</p>
-      <ul>${Object.entries(e.social).filter(([,o])=>o).map(([o,l])=>`<li><a href="${t(l)}" target="_blank" rel="noopener">${t(o[0].toUpperCase()+o.slice(1))}</a></li>`).join("")}</ul>
+      <p class="foot-h">${a(t.footer.follow)}</p>
+      <ul>${Object.entries(e.social).filter(([,i])=>i).map(([i,s])=>`<li><a href="${a(s)}" target="_blank" rel="noopener">${a(i[0].toUpperCase()+i.slice(1))}</a></li>`).join("")}</ul>
     </div>`:""}
   </div>
   <div class="wrap foot-bottom${e.badge===!1?" is-solo":""}">
-    <span>\xA9 ${new Date().getFullYear()} ${t(e.name)}</span>
-    ${Y(e,n,s.lang)}
+    <span>\xA9 ${new Date().getFullYear()} ${a(e.name)}</span>
+    ${ce(e,t,r.lang)}
   </div>
-</footer>`}function $e(a,e){let{site:n,t:r,channels:s}=a,c=e?r.orderText.replace("{product}",e):"";return`<nav class="orderbar" aria-label="${t(r.nav.order)}">
-  ${s.slice(0,3).map((o,l)=>`<a class="${l===0?"primary":""}" href="${t(k(o,n.contact,c))}" ${x(o)}>${m(o,20)}<span>${t(r.orderVia[o])}</span></a>`).join("")}
-</nav>`}function ke({site:a,market:e,L:n,abs:r,products:s,price:c,productPath:o}){return{"@context":"https://schema.org","@type":"Bakery",name:a.name,url:r(`${e.id}/`),description:n(a.intro),telephone:a.contact.phone,email:a.contact.email,address:{"@type":"PostalAddress",streetAddress:n(a.contact.address)},currenciesAccepted:e.currency,openingHoursSpecification:I(a.hours),hasMenu:{"@type":"Menu",hasMenuItem:s.map(l=>({"@type":"MenuItem",name:n(l.name),url:r(o(l,e)),offers:{"@type":"Offer",price:l.price,priceCurrency:e.currency,description:c(l)}}))}}}function xe({site:a,market:e,L:n,abs:r,url:s,productPath:c},o){return{"@context":"https://schema.org","@type":"Product",name:n(o.name),description:n(o.description),image:r(N(o.image)??o.image),brand:{"@type":"Brand",name:a.name},offers:{"@type":"Offer",url:r(c(o,e)),price:o.price,priceCurrency:e.currency,availability:o.inStock?"https://schema.org/InStock":"https://schema.org/OutOfStock"}}}export{Be as renderSite};
+</footer>`}function Ne(n,e){let{site:t,t:o,channels:r}=n,c=e?o.orderText.replace("{product}",e):"";return`<nav class="orderbar" aria-label="${a(o.nav.order)}">
+  ${r.slice(0,3).map((i,s)=>`<a class="${s===0?"primary":""}" href="${a(x(i,t.contact,c))}" ${w(i)}>${f(i,20)}<span>${a(o.orderVia[i])}</span></a>`).join("")}
+</nav>`}function ze({site:n,market:e,L:t,abs:o,products:r,price:c,productPath:i}){return{"@context":"https://schema.org","@type":"Bakery",name:n.name,url:o(`${e.id}/`),description:t(n.intro),telephone:n.contact.phone,email:n.contact.email,address:{"@type":"PostalAddress",streetAddress:t(n.contact.address)},currenciesAccepted:e.currency,openingHoursSpecification:ee(n.hours),hasMenu:{"@type":"Menu",hasMenuItem:r.map(s=>({"@type":"MenuItem",name:t(s.name),url:o(i(s,e)),offers:{"@type":"Offer",price:s.price,priceCurrency:e.currency,description:c(s)}}))}}}function je({site:n,market:e,L:t,abs:o,url:r,productPath:c},i){var s;return{"@context":"https://schema.org","@type":"Product",name:t(i.name),description:t(i.description),image:o((s=C(i.image))!=null?s:i.image),brand:{"@type":"Brand",name:n.name},offers:{"@type":"Offer",url:o(c(i,e)),price:i.price,priceCurrency:e.currency,availability:i.inStock?"https://schema.org/InStock":"https://schema.org/OutOfStock"}}}export{Ie as renderSite};

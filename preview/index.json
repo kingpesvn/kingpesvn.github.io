@@ -1,5 +1,22 @@
 [
   {
+    "id": "arts/ar-261022-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "AR-261022-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-22",
+    "name": {
+      "vi": "Quán karaoke",
+      "en": "Karaoke bar"
+    },
+    "category": "arts",
+    "pages": 4
+  },
+  {
     "id": "auto/au-261011-01",
     "thumbs": [
       "us",
@@ -12,6 +29,40 @@
     "name": {
       "vi": "Garage sửa xe ô tô",
       "en": "Auto repair shop"
+    },
+    "category": "auto",
+    "pages": 4
+  },
+  {
+    "id": "auto/au-261022-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "AU-261022-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-22",
+    "name": {
+      "vi": "Cho thuê xe tự lái",
+      "en": "Self-drive car rental"
+    },
+    "category": "auto",
+    "pages": 4
+  },
+  {
+    "id": "auto/au-261022-02",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "AU-261022-02-v1.0",
+    "version": "1.0",
+    "released": "2026-10-22",
+    "name": {
+      "vi": "Cho thuê xe máy du lịch",
+      "en": "Motorbike rental"
     },
     "category": "auto",
     "pages": 4
@@ -88,6 +139,23 @@
     "pages": 4
   },
   {
+    "id": "education/ed-261022-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "ED-261022-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-22",
+    "name": {
+      "vi": "Lớp học nấu ăn",
+      "en": "Cooking class"
+    },
+    "category": "education",
+    "pages": 4
+  },
+  {
     "id": "events/ev-261009-01",
     "thumbs": [
       "us",
@@ -101,6 +169,23 @@
       "vi": "Thiệp cưới online",
       "en": "Wedding website",
       "ja": "ウェディング招待状サイト"
+    },
+    "category": "events",
+    "pages": 4
+  },
+  {
+    "id": "events/ev-261022-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "EV-261022-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-22",
+    "name": {
+      "vi": "Cho thuê váy cưới, áo dài",
+      "en": "Wedding dress & ao dai rental"
     },
     "category": "events",
     "pages": 4
@@ -343,6 +428,23 @@
     "pages": 4
   },
   {
+    "id": "legal/lg-261022-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "LG-261022-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-22",
+    "name": {
+      "vi": "Văn phòng luật sư",
+      "en": "Law firm"
+    },
+    "category": "legal",
+    "pages": 4
+  },
+  {
     "id": "pets/pt-261013-01",
     "thumbs": [
       "us",
@@ -355,6 +457,23 @@
     "name": {
       "vi": "Spa thú cưng",
       "en": "Pet grooming & spa"
+    },
+    "category": "pets",
+    "pages": 4
+  },
+  {
+    "id": "pets/pt-261022-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "PT-261022-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-22",
+    "name": {
+      "vi": "Phòng khám thú y",
+      "en": "Veterinary clinic"
     },
     "category": "pets",
     "pages": 4
@@ -391,6 +510,40 @@
       "en": "Minimal portfolio & CV"
     },
     "category": "portfolio",
+    "pages": 4
+  },
+  {
+    "id": "realty/re-261022-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "RE-261022-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-22",
+    "name": {
+      "vi": "Căn hộ dịch vụ cho thuê",
+      "en": "Serviced apartment rental"
+    },
+    "category": "realty",
+    "pages": 4
+  },
+  {
+    "id": "realty/re-261022-02",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "RE-261022-02-v1.0",
+    "version": "1.0",
+    "released": "2026-10-22",
+    "name": {
+      "vi": "Văn phòng bất động sản",
+      "en": "Real estate agency"
+    },
+    "category": "realty",
     "pages": 4
   },
   {
@@ -446,6 +599,23 @@
     },
     "category": "retail",
     "pages": 218
+  },
+  {
+    "id": "tech/tc-261022-01",
+    "thumbs": [
+      "us",
+      "vn",
+      "default"
+    ],
+    "code": "TC-261022-01-v1.0",
+    "version": "1.0",
+    "released": "2026-10-22",
+    "name": {
+      "vi": "Coworking, phòng họp theo giờ",
+      "en": "Coworking & meeting rooms"
+    },
+    "category": "tech",
+    "pages": 4
   },
   {
     "id": "travel/tr-261009-01",

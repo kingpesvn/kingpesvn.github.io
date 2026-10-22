@@ -83,7 +83,8 @@ var today=o.year+'-'+o.month+'-'+o.day;
 var U=function(s){var p=s.split('-');return Date.UTC(+p[0],+p[1]-1,+p[2])};
 var iso=function(t){var d=new Date(t);return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0')};
 var fin=q('[data-stay-in]'),fout=q('[data-stay-out]'),hday=q('[data-stay-hday]');
-fin.min=today;fin.value=fin.value||today;fout.min=iso(U(today)+864e5);fout.value=fout.value||iso(U(fin.value)+864e5);if(hday){hday.min=today;hday.value=hday.value||today}
+var DAY=D.unit==='day',gap=DAY?0:864e5;
+fin.min=today;fin.value=fin.value||today;fout.min=iso(U(today)+gap);fout.value=fout.value||iso(U(fin.value)+864e5);if(hday){hday.min=today;hday.value=hday.value||today}
 var df=new Intl.DateTimeFormat(D.money.locale,{weekday:'short',day:'numeric',month:'numeric',timeZone:'UTC'});
 var nf=new Intl.NumberFormat(D.money.locale);
 function calc(){
@@ -91,29 +92,32 @@ var r=D.rooms.filter(function(x){return x.id===q('[data-stay-room]').value})[0]|
 var m=f.querySelector('[data-stay-mode]:checked'),hourly=m&&m.value==='hour'&&r.hourly;
 var modeBox=q('.stay-mode');if(modeBox){var hr=modeBox.querySelector('[value=hour]');hr.disabled=!r.hourly;if(!r.hourly&&m&&m.value==='hour'){modeBox.querySelector('[value=night]').checked=true;hourly=false}}
 q('[data-stay-nights]').hidden=!!hourly;var hb=q('[data-stay-hours]');if(hb)hb.hidden=!hourly;
-var rooms=+q('[data-stay-count]').value,g=q('[data-stay-guests]').value,sum=0,brk=[],date='',size='',bad=false;
+var gq=q('[data-stay-guests]'),rooms=+q('[data-stay-count]').value,g=gq?gq.value:'',sum=0,brk=[],date='',size='',bad=false;
 if(hourly){var h=+q('[data-stay-hcount]').value,st=q('[data-stay-hstart]').value;
 sum=r.hourly.price+Math.max(0,h-r.hourly.hours)*r.hourly.extra;
 brk.push(X.firstHours.replace('{n}',r.hourly.hours).replace('{price}',money(r.hourly.price))+(h>r.hourly.hours?' + '+(h-r.hourly.hours)+' × '+money(r.hourly.extra):''));
 date=df.format(U(hday.value))+' · '+st+' · '+X.hourN.replace('{n}',h);size=X.hour+' · '+X.hourN.replace('{n}',h);
 }else{
-if(U(fout.value)<=U(fin.value)){fout.value=iso(U(fin.value)+864e5)}
-var a=U(fin.value),b=U(fout.value),n=Math.round((b-a)/864e5);bad=n<1;n=Math.min(Math.max(n,1),D.maxNights);
-var by={},order=[],pk=0;
+if(U(fout.value)<U(fin.value)+gap){fout.value=iso(U(fin.value)+864e5)}
+var a=U(fin.value),b=U(fout.value),n=Math.round((b-a)/864e5);bad=!DAY&&n<1;n=Math.min(Math.max(n,1),D.maxNights);
+var by={},order=[],pk=0,base=r.rates.filter(function(x){return !x.min}),lr=r.rates.filter(function(x){return x.min&&n>=x.min}).sort(function(x,y){return y.min-x.min})[0];if(!base.length)base=r.rates;
 for(var i=0;i<n;i++){var t=a+i*864e5,wd=new Date(t).getUTCDay(),ds=iso(t);
-var rt=r.rates.filter(function(x){return x.days.length&&x.days.indexOf(wd)>=0})[0]||r.rates.filter(function(x){return !x.days.length})[0]||r.rates[0];
+var rt=lr||base.filter(function(x){return x.days.length&&x.days.indexOf(wd)>=0})[0]||base.filter(function(x){return !x.days.length})[0]||base[0];
 var p=rt.price;D.peaks.forEach(function(z){if(ds>=z.start&&ds<=z.end){var add=Math.round(rt.price*z.percent/100);p+=add;pk+=add}});
 sum+=p;if(!by[rt.label]){by[rt.label]={n:0,p:rt.price};order.push(rt.label)}by[rt.label].n++}
-brk=order.map(function(k){return k+': '+X.nights.replace('{n}',by[k].n)+' × '+money(by[k].p)});if(pk)brk.push(X.peak+' +'+money(pk));
-var unit=D.unit==='day'?X.unitDay:X.nights;
-date=df.format(a)+' → '+df.format(b)+' · '+unit.replace('{n}',n);size=unit.replace('{n}',n);
+var unit=DAY?X.unitDay:X.nights,pt=q('[data-stay-ptime]'),dt=q('[data-stay-dtime]');
+brk=order.map(function(k){return k+': '+unit.replace('{n}',by[k].n)+' × '+money(by[k].p)});if(pk)brk.push(X.peak+' +'+money(pk));
+date=df.format(a)+(pt?' '+pt.value:'')+' → '+df.format(b)+(dt?' '+dt.value:'')+' · '+unit.replace('{n}',n);size=unit.replace('{n}',n);
 }
-sum*=rooms;if(rooms>1)brk.push('× '+rooms);
+var ex=[],exs=0;Array.prototype.forEach.call(f.querySelectorAll('[data-stay-extra]:checked'),function(c){var e=D.extras.filter(function(z){return z.id===c.value})[0];if(!e)return;var v=e.per==='trip'?e.price:e.price*(hourly?1:n);exs+=v;ex.push(e.name)});
+sum*=rooms;if(rooms>1)brk.push('× '+rooms);if(exs){sum+=exs*rooms;brk.push(X.extras+' +'+money(exs*rooms))}
+var dep=q('[data-stay-dep]');if(dep){dep.hidden=!r.deposit;if(r.deposit)dep.textContent=X.depositNote.replace('{price}',money(r.deposit*rooms))}
+if(ex.length)size+=' · '+ex.join(', ');
 q('[data-stay-sum]').textContent=money(sum);q('[data-stay-break]').textContent=brk.join(' · ');q('[data-stay-warn]').hidden=!bad;
 f.querySelector('[name=product]').value=r.name;f.querySelector('[name=date]').value=date;f.querySelector('[name=price]').value=money(sum);
-f.querySelector('[name=size]').value=[size,X.guests+': '+g,rooms>1?X.rooms+': '+rooms:''].filter(Boolean).join(' · ');
+f.querySelector('[name=size]').value=[size,g?X.guests+': '+g:'',rooms>1?X.rooms+': '+rooms:''].filter(Boolean).join(' · ');
 }
-f.addEventListener('change',function(e){if(e.target===fin){fout.min=iso(U(fin.value)+864e5)}calc()});f.addEventListener('input',calc);calc();
+f.addEventListener('change',function(e){if(e.target===fin){fout.min=iso(U(fin.value)+gap)}calc()});f.addEventListener('input',calc);calc();
 f.kpStayCalc=calc;
 });
 })();</script>
