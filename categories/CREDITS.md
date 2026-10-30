@@ -23,3 +23,6 @@
 | `arts.webp` | [Mirrored Disco Ball with Light and Motor](https://commons.wikimedia.org/wiki/File:Mirrored_Disco_Ball_with_Light_and_Motor.jpg) | Catboy69 | CC0 1.0 |
 | `tech.webp` | [Minimalist meeting room (Unsplash)](https://commons.wikimedia.org/wiki/File:Minimalist_meeting_room_(Unsplash).jpg) | Breather breather | CC0 1.0 |
 | `legal.webp` | [Free library shelves many books](https://www.rawpixel.com/image/5904761/photo-image-book-public-domain-wood) | — | CC0 1.0 |
+| `home.webp` | [Free minimal living room dog](https://www.rawpixel.com/image/5927351/photo-image-public-domain-house-dog) | — | CC0 1.0 |
+| `industry.webp` | [Printing manufacturing](https://www.rawpixel.com/image/6043427/photo-image-paper-public-domain-free) | — | CC0 1.0 |
+| `community.webp` | [Nelumbo nucifera 5](https://commons.wikimedia.org/wiki/File:Nelumbo_nucifera_5.JPG) | Dinkum | CC0 1.0 |

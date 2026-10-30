@@ -208,7 +208,7 @@
 <section class="section print-hide" aria-labelledby="rev-title">
   <div class="wrap">
     <h2 id="rev-title" class="h2">Kind words</h2>
-    <div class="rv" data-rv data-more="Read more" data-less="Show less">
+    <div class="rv" data-rv data-rv-more="Read more" data-rv-less="Show less">
       <div class="quotes rv-track" tabindex="0"><figure class="quote">
       <blockquote>“Minh asked all the right questions first; the first version was already 80% of what we needed.”</blockquote>
       <figcaption><strong>Chị Hoa · Lá Spa</strong><span>Booking app</span><time class="rv-date" datetime="2026-08-20">August 2026</time></figcaption>
@@ -245,7 +245,7 @@ const step=()=>{const c=t.children[0];return c?c.getBoundingClientRect().width+p
 const upd=()=>{const max=t.scrollWidth-t.clientWidth-2;nav.hidden=max<=0;p.disabled=t.scrollLeft<=2;n.disabled=t.scrollLeft>=max};
 p.onclick=()=>t.scrollBy({left:-step(),behavior:'smooth'});n.onclick=()=>t.scrollBy({left:step(),behavior:'smooth'});
 t.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);
-for(const c of t.children){const q=c.querySelector('blockquote');if(!q||q.scrollHeight<=q.clientHeight+2)continue;const b=document.createElement('button');b.type='button';b.className='rv-more';b.textContent=rv.dataset.more;b.setAttribute('aria-expanded','false');b.onclick=()=>{const o=c.classList.toggle('rv-open');rv.classList.toggle('rv-x',!!t.querySelector('.rv-open'));b.textContent=o?rv.dataset.less:rv.dataset.more;b.setAttribute('aria-expanded',String(o))};q.after(b)}
+for(const c of t.children){const q=c.querySelector('blockquote');if(!q||q.scrollHeight<=q.clientHeight+2)continue;const b=document.createElement('button');b.type='button';b.className='rv-more';b.textContent=rv.dataset.rvMore;b.setAttribute('aria-expanded','false');b.onclick=()=>{const o=c.classList.toggle('rv-open');rv.classList.toggle('rv-x',!!t.querySelector('.rv-open'));b.textContent=o?rv.dataset.rvLess:rv.dataset.rvMore;b.setAttribute('aria-expanded',String(o))};q.after(b)}
 upd()}})()</script>
   </div>
 </section>
