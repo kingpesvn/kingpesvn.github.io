@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://kingpes.net/preview/travel/tr-261025-01/sitemap.xml
