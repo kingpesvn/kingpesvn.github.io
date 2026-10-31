@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://kingpes.net/preview/food/fd-260927-02/sitemap.xml

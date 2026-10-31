@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://kingpes.net/preview/beauty/bt-261009-01/sitemap.xml
