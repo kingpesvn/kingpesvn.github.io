@@ -13,5 +13,6 @@ Disallow: /de/erstellen/
 Disallow: /pt/criar/
 Disallow: /ru/create/
 Disallow: /preview/
+Allow: /preview/*/thumbnail-*.webp
 
 Sitemap: https://kingpes.net/sitemap-index.xml
